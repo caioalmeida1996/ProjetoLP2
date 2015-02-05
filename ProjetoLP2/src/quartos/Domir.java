@@ -3,7 +3,7 @@ package quartos;
 public class Domir {
 
 	public Domir() {
-		System.out.println("vão se lascar d3d!!!");
+		System.out.println("vão seewfwf lascar d3d!!!");
 	}
 
 }
