@@ -14,17 +14,22 @@ public class SuitePresidencial extends Quarto{
 	private static double valorDiaria = 1200;
 	
 	/**
-	 * Construtor da classe
-	 * 
-	 * @param dataInicial
-	 * 			(Calendar) A data de inicio do aluguel da suite
-	 * @param dataFinal
-	 * 			(Calendar) A data de fim do aluguel da suite
+	 *  construtor da classe
+	 * @param dataInicial A data inicial do aluguel do quarto.
+	 * @param dataFinal a data atual/final do aluguel do quarto.
+	 * @param nomeDoHospede O nome do responsável pelo quanrto.
 	 */
 	public SuitePresidencial(Calendar dataInicial, Calendar dataFinal, String nomeDoHospede) throws Exception{
 		super(dataInicial, dataFinal, nomeDoHospede);		
 	}// fim do construtor
 
+	
+	//-----------------metodos gets-------------------
+	
+	/**
+	 *  Retorna a capacidade maxima do respectivo quarto
+	 * @return int representando a capaciade max do quarto
+	 */
 	@Override
 	public int getCapacidadeMaxima() {
 		return capacidadeMaxima;

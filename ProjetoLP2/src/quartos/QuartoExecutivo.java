@@ -2,27 +2,43 @@ package quartos;
 
 import java.util.Calendar;
 
-
+/**
+ * 
+ * @author heitor;
+ *
+ */
 public abstract class QuartoExecutivo extends Quarto{
 	private  int capacidadeMaxima;
 	private  double valorDiaria;
-	private boolean temCama;
+	private boolean temCamaExtra;
 
-	public QuartoExecutivo(String tipoDoQuarto,Calendar dataInicial, Calendar dataFinal, String nomeDoHospede, boolean temCama)throws Exception {
+	/**
+	 *  Construtor da Classe QuartoExecutivo
+	 * @param tipoDoQuarto o tipo de quarto que será criado, "simpes","duplo","triplo".
+	 * @param dataInicial A data inicial do aluguel do quarto.
+	 * @param dataFinal a data atual/final do aluguel do quarto.
+	 * @param nomeDoHospede O nome do responsável pelo quanrto.
+	 * @param temCamaExtra Informa se no quarto haverá ou não cama extra.
+	 * @throws Exception as devidas exceções.
+	 */
+	public QuartoExecutivo(String tipoDoQuarto,Calendar dataInicial, Calendar dataFinal, String nomeDoHospede, boolean temCamaExtra)throws Exception {
+		/* os quartos são divididos em 3 tipos,"simpes","duplo","triplo". para cada um valor de diaria e de capacidade maxima deve ser 
+		 * ser diferente , as condicoes abaixo servem pra criar os 3 tipos de quarto sem a necessidade de cirar varias outras subclasses
+		 * reduzindo assim a quantidade de linhas e a repeticao de codigos 
+		 */
 		super(dataInicial, dataFinal, nomeDoHospede);
-		System.out.println(tipoDoQuarto);
 		if (tipoDoQuarto == "simples") {
 			this.capacidadeMaxima = 1;
 			this.valorDiaria = 360.00;
-			this.temCama = temCama;
+			this.temCamaExtra = temCamaExtra;
 		}else if(tipoDoQuarto == "duplo"){
 			this.capacidadeMaxima = 2;
 			this.valorDiaria = 385.00;
-			this.temCama = temCama;
+			this.temCamaExtra = temCamaExtra;
 		}else if (tipoDoQuarto == "triplo"){
 			this.capacidadeMaxima = 3;
 			this.valorDiaria = 440.00;
-			this.temCama = false;
+			this.temCamaExtra = false;
 		}else{
 			throw new Exception("erro, tipo de quarto invalido");
 		}
@@ -30,14 +46,21 @@ public abstract class QuartoExecutivo extends Quarto{
 		
 	}
 	
-
+	
+	//----------metodos gets ------------------
+	
+	/**
+	 *  Retorna a capacidade maxima do respectivo quarto
+	 * @return int representando a capaciade max do quarto
+	 */
 	@Override
 	public int getCapacidadeMaxima() {
 		return capacidadeMaxima;
 	}
 	
+	
 	/**
-	 * Recupera o valor monetario de uma diaria de aluguel em uma suite presidencial
+	 * Recupera o valor monetario de uma diaria de aluguel no quarto executivo.
 	 * 
 	 * @return O valor monetario da diaria
 	 */
@@ -47,14 +70,61 @@ public abstract class QuartoExecutivo extends Quarto{
 	}
 	
 	
+	/**
+	 *  retorna o tipo de quarto
+	 * @return uma string representando o tipo de quarto.
+	 */
+	public String getTipoDeQuarto(){
+		/* se a capaciade maxima do quarto for 1
+		 *  ele é do tipo "simples", se for 2
+		 *  é do tipo "duplo",
+		 *  se for 3 "triplo".
+		 */
+		if(capacidadeMaxima == 1){
+			return "simples";
+		}
+		else if(capacidadeMaxima == 2){
+			return "duplo";
+		}
+		else{
+			return "triplo";
+		}
+	}
+
 	
-	public boolean isTemCama() {
-		return temCama;
+	/**
+	 * diz se o quarto possui ou não cama
+	 * @return um boolean indicando se possui ou não cama no quarto.
+	 * 
+	 */
+	public boolean isTemCamaExtra() {
+		return temCamaExtra;
 	}
 
-	public void setTemCama(boolean temCama) {
-		this.temCama = temCama;
+	
+	// ------------------- metodos sets----------------
+	
+	/**
+	 * 
+	 * @param temCama recebe um boolean de configuração da cama
+	 * @return Um boolean indicando se o quarto possui ou não a cama 
+	 * 
+	 */
+	public boolean setTemCama(boolean temCama) {
+		/* se a cama for do tipo "triplo"
+		 * ela não pode ter cama extra
+		 */
+		if(getTipoDeQuarto() == "triplo"){
+			this.temCamaExtra = false;
+			return isTemCamaExtra();
+		}
+		this.temCamaExtra = temCama;
+		return isTemCamaExtra();
+		
 	}
 
+	
+	
+	
 
 }

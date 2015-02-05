@@ -22,12 +22,12 @@ public class Usaquartos {
 	 */
 	public static void main(String[] args) throws Exception {
 		
-		//suite presidencial
+		//cria suite presidencial
 		a2.set(Calendar.DAY_OF_YEAR,38);
 		SuitePresidencial q1 = new SuitePresidencial(a1,a2,"heitor") {
 		};
 		
-		// os quartos executivos
+		//cria os quartos executivos
 		a2.set(Calendar.DAY_OF_YEAR,48); // adiciona o dia 48 do ano
 		QuartoExecutivo q2 = new QuartoExecutivo("simples",a1,a2,"heitor2",true) {
 		}; 
@@ -39,18 +39,19 @@ public class Usaquartos {
 		}; 
 		
 		
-		// os quartos de luxo
+		//cria os quartos de luxo
 		a2.set(Calendar.DAY_OF_YEAR,48); // adiciona o dia 48 do ano
-		QuartoLuxo q5 = new QuartoLuxo("simples",a1,a2,"heitor2",true) {
+		QuartoLuxo q5 = new QuartoLuxo("simples",a1,a2,"heitor5",true) {
 		}; 
 		a3.set(Calendar.DAY_OF_YEAR,58);// adiciona o dia 58 do ano
-		QuartoLuxo q6 = new QuartoLuxo("duplo",a2,a3,"heitor3",true) {
+		QuartoLuxo q6 = new QuartoLuxo("duplo",a2,a3,"heitor6",true) {
 		}; 
 		a4.set(Calendar.DAY_OF_YEAR,68);// adiciona o dia 68 do ano
-		QuartoLuxo q7 = new QuartoLuxo("triplo",a3,a4,"heitor4",false) {
+		QuartoLuxo q7 = new QuartoLuxo("triplo",a3,a4,"heitor7",false) {
 		}; 
 		
 		//testa presidencial
+		System.out.println("testa presidencial");
 		System.out.println("nome do hospede:" + q1.getNomeDoHospide());
 		System.out.println("data inicial:" + q1.getDataInicial());
 		System.out.println("data final:" + q1.getDataFinal());
@@ -58,8 +59,10 @@ public class Usaquartos {
 		System.out.println("valor da diaria:" + q1.getValorDiaria());
 		System.out.println("capacidade maxima:" + q1.getCapacidadeMaxima());
 		System.out.println("custo" + q1.custo());
+		System.out.println("----------------------------------");
 		
 		//testa os quartos executivos
+		System.out.println("testa os quartos executivos");
 		System.out.println("nome do hospede:" + q2.getNomeDoHospide());
 		System.out.println("data inicial:" + q2.getDataInicial());
 		System.out.println("data final:" + q2.getDataFinal());
@@ -67,6 +70,7 @@ public class Usaquartos {
 		System.out.println("valor da diaria:" + q2.getValorDiaria());
 		System.out.println("capacidade maxima:" + q2.getCapacidadeMaxima());
 		System.out.println("custo" + q2.custo());
+		System.out.println("----------------------------------");
 		//q1.finalizarQuarto();
 		
 		System.out.println("nome do hospede:" + q3.getNomeDoHospide());
@@ -76,6 +80,7 @@ public class Usaquartos {
 		System.out.println("valor da diaria:" + q3.getValorDiaria());
 		System.out.println("capacidade maxima:" + q3.getCapacidadeMaxima());
 		System.out.println("custo" + q3.custo());
+		System.out.println("----------------------------------");
 		
 		System.out.println("nome do hospede:" + q4.getNomeDoHospide());
 		System.out.println("data inicial:" + q4.getDataInicial());
@@ -84,9 +89,11 @@ public class Usaquartos {
 		System.out.println("valor da diaria:" + q4.getValorDiaria());
 		System.out.println("capacidade maxima:" + q4.getCapacidadeMaxima());
 		System.out.println("custo" + q4.custo());
+		System.out.println("----------------------------------");
 		
 		
 		//testa os quartos luxos
+		System.out.println("testa os quartos luxos");
 		System.out.println("nome do hospede:" + q5.getNomeDoHospide());
 		System.out.println("data inicial:" + q5.getDataInicial());
 		System.out.println("data final:" + q5.getDataFinal());
@@ -94,6 +101,7 @@ public class Usaquartos {
 		System.out.println("valor da diaria:" + q5.getValorDiaria());
 		System.out.println("capacidade maxima:" + q5.getCapacidadeMaxima());
 		System.out.println("custo" + q5.custo());
+		System.out.println("----------------------------------");
 		
 		System.out.println("nome do hospede:" + q6.getNomeDoHospide());
 		System.out.println("data inicial:" + q6.getDataInicial());
@@ -102,6 +110,7 @@ public class Usaquartos {
 		System.out.println("valor da diaria:" + q6.getValorDiaria());
 		System.out.println("capacidade maxima:" + q6.getCapacidadeMaxima());
 		System.out.println("custo" + q6.custo());
+		System.out.println("----------------------------------");
 		
 		System.out.println("nome do hospede:" + q7.getNomeDoHospide());
 		System.out.println("data inicial:" + q7.getDataInicial());
@@ -110,6 +119,7 @@ public class Usaquartos {
 		System.out.println("valor da diaria:" + q7.getValorDiaria());
 		System.out.println("capacidade maxima:" + q7.getCapacidadeMaxima());
 		System.out.println("custo" + q7.custo());
+		System.out.println("----------------------------------");
 	
 	
 	}
