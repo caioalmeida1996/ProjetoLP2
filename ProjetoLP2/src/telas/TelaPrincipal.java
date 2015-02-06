@@ -53,6 +53,12 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(toolBar);
 		
 		JButton btnHospedes = new JButton("Hospedes");
+		btnHospedes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaHospede TH = new TelaHospede();
+				TH.show();
+			}
+		});
 		toolBar.add(btnHospedes);
 		
 		JButton btnQuartos = new JButton("Quartos");
