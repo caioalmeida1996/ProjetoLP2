@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 /**
  * 
- * @author heitor;
+ * @author Alexandre, Heitor, Caio e Akylles.
  *
  */
 public abstract class QuartoExecutivo extends Quarto {
