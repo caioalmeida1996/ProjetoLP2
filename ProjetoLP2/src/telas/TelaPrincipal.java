@@ -55,8 +55,9 @@ public class TelaPrincipal extends JFrame {
 		JButton btnHospedes = new JButton("Hospedes");
 		btnHospedes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TelaHospede TH = new TelaHospede();
-				TH.show();
+				TelaHospede th = new TelaHospede();  
+				th.setVisible(true);
+				th.show();
 			}
 		});
 		toolBar.add(btnHospedes);

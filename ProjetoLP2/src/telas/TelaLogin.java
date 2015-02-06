@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class TelaLogin extends JFrame {
 
@@ -16,6 +17,8 @@ public class TelaLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField tfLogin;
 	private JPasswordField passwordField;
+	private JButton btnAcessar;
+	private JButton btnCancelar;
 
 	/**
 	 * Launch the application.s
@@ -49,5 +52,13 @@ public class TelaLogin extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(168, 144, 86, 20);
 		contentPane.add(passwordField);
+		
+		btnAcessar = new JButton("Acessar");
+		btnAcessar.setBounds(79, 193, 89, 23);
+		contentPane.add(btnAcessar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(251, 193, 89, 23);
+		contentPane.add(btnCancelar);
 	}
 }
