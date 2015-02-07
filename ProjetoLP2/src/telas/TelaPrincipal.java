@@ -1,14 +1,18 @@
 package telas;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Frame;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JToolBar;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JDesktopPane;
 
 public class TelaPrincipal extends JFrame {
@@ -39,48 +43,41 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
+		
+		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+		setBounds(0, 0,screen.width,screen.height - 30);
+		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 711, 477);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JToolBar toolBar = new JToolBar();
-		toolBar.setEnabled(false);
-		toolBar.setFloatable(false);
-		toolBar.setBounds(0, 0, 695, 86);
-		contentPane.add(toolBar);
-		
-		JButton btnHospedes = new JButton("Hospedes");
-		btnHospedes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				TelaHospede th = new TelaHospede();  
-				th.setVisible(true);
-				th.show();
-			}
-		});
-		toolBar.add(btnHospedes);
-		
-		JButton btnQuartos = new JButton("Quartos");
-		toolBar.add(btnQuartos);
-		
-		JButton btnServios = new JButton("Servi\u00E7os");
-		btnServios.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		toolBar.add(btnServios);
-		
-		JButton btnRelatorio = new JButton("Relatorio");
-		toolBar.add(btnRelatorio);
-		
-		JButton btnOpnies = new JButton("Opni\u00F5es");
-		toolBar.add(btnOpnies);
-		
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBounds(0, 86, 695, 353);
+		desktopPane.setBounds(0, 87, 1365, 613);
 		contentPane.add(desktopPane);
+		
+		JButton btnHospede = new JButton("Hospede");
+		btnHospede.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				TelaCadastraHospede TH = new TelaCadastraHospede();
+				TH.show();
+			}
+		});
+		btnHospede.setBounds(10, 28, 89, 23);
+		contentPane.add(btnHospede);
+		
+		JButton btnQuarto = new JButton("Quarto");
+		btnQuarto.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				TelaQuarto TQ = new TelaQuarto();
+				TQ.show();
+			}
+		});
+		btnQuarto.setBounds(127, 28, 89, 23);
+		contentPane.add(btnQuarto);
 	}
-
 }
