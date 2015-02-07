@@ -10,12 +10,14 @@ import servicos.ServicoSuplementar;
 public class Contrato {
 
 	private String nome, cpf, endereco;
+	private Quarto quarto;
 	private ArrayList<Servico> servicos = new ArrayList<Servico>();
 	
 	public Contrato(String nome, String cpf, String endereco, Quarto tipoQuarto) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;
+		this.quarto = tipoQuarto;
 		this.servicos.add(tipoQuarto);
 	}
 		
@@ -35,17 +37,16 @@ public class Contrato {
 		return servicos;
 	}
 	
-	public Quarto getTipoQuarto(){
-		Quarto quarto = (Quarto) servicos.get(0); 
-		return quarto;
+	public String getTipoQuarto(){
+		return quarto.getTipoDeQuarto();
 	}
 	
 	public Calendar getDataInicioContrato(){
 		return this.servicos.get(0).getDataSolicitacao();
 	}
 	
-	public Calendar getDataFimContrato(){
-		Quarto quarto = (Quarto) this.servicos.get(0);  
+	public String getDataFimContrato(){
+		//Quarto quarto = (Quarto) this.servicos.get(0);  
 		return quarto.getDataFinal();
 	}
 	

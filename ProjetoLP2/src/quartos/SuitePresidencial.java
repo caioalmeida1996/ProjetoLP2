@@ -51,4 +51,10 @@ public class SuitePresidencial extends Quarto {
 		return valorDiaria;
 	}
 
+	@Override
+	public String getTipoDeQuarto() {
+		// TODO Auto-generated method stub
+		return "Presidencial";
+	}
+
 }// fim da classe

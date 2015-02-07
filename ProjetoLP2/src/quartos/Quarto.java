@@ -2,13 +2,15 @@ package quartos;
 
 import java.util.Calendar;
 
+import servicos.ServicoTrivial;
+
 /**
  * Classe Quarto
  * 
  * @author Alexandre, Heitor, Caio e Akylles.
  *
  */
-public abstract class Quarto {
+public abstract class Quarto extends ServicoTrivial{
 
 	private Calendar dataInicial; // A data do inicial do aluguel de quarto
 	private Calendar dataFinal; // A data do final do aluguel de quarto
@@ -91,6 +93,9 @@ public abstract class Quarto {
 		return 0;
 	}
 
+	
+	public abstract String getTipoDeQuarto();
+	
 	// -------------- Metodos Sets -------------------
 
 	/**
