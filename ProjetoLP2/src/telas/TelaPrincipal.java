@@ -58,7 +58,7 @@ public class TelaPrincipal extends JFrame {
 		desktopPane.setBounds(0, 87, 1365, 613);
 		contentPane.add(desktopPane);
 		
-		JButton btnHospede = new JButton("Hospede");
+		JButton btnHospede = new JButton("Hospedes");
 		btnHospede.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
@@ -66,10 +66,10 @@ public class TelaPrincipal extends JFrame {
 				TH.show();
 			}
 		});
-		btnHospede.setBounds(10, 28, 89, 23);
+		btnHospede.setBounds(10, 51, 132, 35);
 		contentPane.add(btnHospede);
 		
-		JButton btnQuarto = new JButton("Quarto");
+		JButton btnQuarto = new JButton("Quartos");
 		btnQuarto.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +77,30 @@ public class TelaPrincipal extends JFrame {
 				TQ.show();
 			}
 		});
-		btnQuarto.setBounds(127, 28, 89, 23);
+		btnQuarto.setBounds(436, 51, 132, 35);
 		contentPane.add(btnQuarto);
+		
+		JButton btnServio = new JButton("Servi\u00E7os");
+		btnServio.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				TelaCadastraServico TCS = new TelaCadastraServico();
+				TCS.show();
+			}
+		});
+		btnServio.setBounds(152, 51, 132, 35);
+		contentPane.add(btnServio);
+		
+		JButton btnContrato = new JButton("Contratos");
+		btnContrato.setBounds(294, 51, 132, 35);
+		contentPane.add(btnContrato);
+		
+		JButton btnRelatorio = new JButton("Relat\u00F3rio");
+		btnRelatorio.setBounds(578, 51, 132, 35);
+		contentPane.add(btnRelatorio);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.setBounds(720, 51, 132, 35);
+		contentPane.add(btnSair);
 	}
 }
