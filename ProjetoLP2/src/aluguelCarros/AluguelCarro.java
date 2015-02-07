@@ -33,6 +33,8 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 		this.temSeguro = temSeguro;
 	}// fim do construtor
 
+	
+	// ----------------------metodos sets--------------------
 	/**
 	 * Configura o valor cobrado pelo aditivo tanque cheio
 	 * 
@@ -47,11 +49,24 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 	 * 
 	 * @param valorSeguro
 	 */
-
 	public static void setValorSeguro(double valorSeguro) {
 		AluguelCarro.valorSeguro = valorSeguro;
 	}
 	
+	/**
+	 * Configura a data e hora em que o carro alugado foi devolvido ao hotel
+	 * 
+	 * @param dataFinal
+	 * 			(Calendar) A data de devolucao.
+	 */
+	public void setDataDevolucao(Calendar dataFinal){
+		this.dataDevolucao = dataFinal;
+	}
+	
+	
+	
+	
+	//-----------------------metodos gets----------------------------
 
 	/**
 	 * Recupera o valor adicional relacionado ao tanque cheio
@@ -80,16 +95,7 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 		return placa;
 	}
 
-	/**
-	 * Configura a data e hora em que o carro alugado foi devolvido ao hotel
-	 * 
-	 * @param dataFinal
-	 * 			(Calendar) A data de devolucao.
-	 */
-	public void setDataDevolucao(Calendar dataFinal){
-		this.dataDevolucao = dataFinal;
-	}
-	
+
 	/**
 	 * Recupera a data em que o carro foi devolvido.
 	 * 

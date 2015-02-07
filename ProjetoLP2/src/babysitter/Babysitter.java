@@ -14,8 +14,7 @@ import servicos.ServicoSuplementar;
 public class Babysitter extends ServicoSuplementar{
 
 	private Calendar dataFinalizacao;  // Armazena a data e hora da finalizacao do servico de babysitter
-	private int horaDeInicio;
-	private int horaDeFinal;
+	
 	/**
 	 * Configura a data e hora do fim da prestacao do servico de babysitter
 	 * 
