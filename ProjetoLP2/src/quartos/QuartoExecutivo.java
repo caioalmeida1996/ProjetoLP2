@@ -7,7 +7,7 @@ import java.util.Calendar;
  * @author Alexandre, Heitor, Caio e Akylles.
  *
  */
-public abstract class QuartoExecutivo extends Quarto {
+public class QuartoExecutivo extends Quarto {
 	private int capacidadeMaxima;
 	private double valorDiaria;
 	private boolean temCamaExtra;

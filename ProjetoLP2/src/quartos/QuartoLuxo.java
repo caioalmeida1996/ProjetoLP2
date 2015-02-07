@@ -2,7 +2,7 @@ package quartos;
 
 import java.util.Calendar;
 
-public abstract class QuartoLuxo extends Quarto {
+public class QuartoLuxo extends Quarto {
 	private int capacidadeMaxima;
 	private double valorDiaria;
 	private boolean temCamaExtra;
