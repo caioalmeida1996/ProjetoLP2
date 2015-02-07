@@ -7,8 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class TelaQuarto extends JFrame {
+public class TelaCadastraQuarto extends JFrame {
 
 	/**
 	 * 
@@ -28,9 +30,9 @@ public class TelaQuarto extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaQuarto() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 669, 484);
+	public TelaCadastraQuarto() {
+		
+		setBounds(300, 120, 719, 486);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -41,19 +43,23 @@ public class TelaQuarto extends JFrame {
 		contentPane.add(btnNovo);
 
 		JButton btnListaDeQuartos = new JButton("Lista de Quartos");
-		btnListaDeQuartos.setBounds(129, 412, 117, 23);
+		btnListaDeQuartos.setBounds(148, 412, 132, 23);
 		contentPane.add(btnListaDeQuartos);
 
 		JButton btnGravar = new JButton("Gravar");
-		btnGravar.setBounds(276, 412, 89, 23);
+		btnGravar.setBounds(322, 412, 89, 23);
 		contentPane.add(btnGravar);
 
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(395, 412, 89, 23);
+		btnExcluir.setBounds(443, 412, 89, 23);
 		contentPane.add(btnExcluir);
 
 		JButton btnFechar = new JButton("Fechar");
-		btnFechar.setBounds(514, 412, 89, 23);
+		btnFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnFechar.setBounds(564, 412, 89, 23);
 		contentPane.add(btnFechar);
 
 		JLabel lblTipoDeQuarto = new JLabel("Tipo de Quarto");
@@ -82,20 +88,20 @@ public class TelaQuarto extends JFrame {
 		contentPane.add(tfNumDePessoas);
 
 		JLabel lblDataDeEntrada = new JLabel("Data de Entrada");
-		lblDataDeEntrada.setBounds(369, 76, 86, 14);
+		lblDataDeEntrada.setBounds(369, 76, 94, 14);
 		contentPane.add(lblDataDeEntrada);
 
 		JLabel lblDataDeSaida = new JLabel("Data de Saida");
-		lblDataDeSaida.setBounds(369, 104, 86, 14);
+		lblDataDeSaida.setBounds(369, 183, 86, 14);
 		contentPane.add(lblDataDeSaida);
 
 		tfDataDeEntrada = new JTextField();
-		tfDataDeEntrada.setBounds(465, 73, 86, 20);
+		tfDataDeEntrada.setBounds(369, 106, 86, 20);
 		contentPane.add(tfDataDeEntrada);
 		tfDataDeEntrada.setColumns(10);
 
 		tfDataDeSaida = new JTextField();
-		tfDataDeSaida.setBounds(465, 101, 86, 20);
+		tfDataDeSaida.setBounds(369, 208, 86, 20);
 		contentPane.add(tfDataDeSaida);
 		tfDataDeSaida.setColumns(10);
 	}

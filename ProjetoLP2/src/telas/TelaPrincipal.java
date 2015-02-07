@@ -73,7 +73,7 @@ public class TelaPrincipal extends JFrame {
 		btnQuarto.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				TelaQuarto TQ = new TelaQuarto();
+				TelaCadastraQuarto TQ = new TelaCadastraQuarto();
 				TQ.show();
 			}
 		});

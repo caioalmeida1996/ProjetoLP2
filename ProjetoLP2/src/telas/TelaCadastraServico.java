@@ -1,12 +1,13 @@
 package telas;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JDesktopPane;
 import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastraServico extends JFrame {
 
@@ -19,25 +20,14 @@ public class TelaCadastraServico extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCadastraServico frame = new TelaCadastraServico();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
 	public TelaCadastraServico() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 734, 491);
+
+		setBounds(300, 120, 719, 486);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -49,10 +39,24 @@ public class TelaCadastraServico extends JFrame {
 		panel.setLayout(null);
 		
 		JButton btnCarro = new JButton("Carro");
+		btnCarro.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				TelaServicoCarro TSC = new TelaServicoCarro();
+				TSC.show();
+			}
+		});
 		btnCarro.setBounds(52, 34, 111, 46);
 		panel.add(btnCarro);
 		
-		JButton btnBabysitte = new JButton("BabySitte");
+		JButton btnBabysitte = new JButton("BabySitter");
+		btnBabysitte.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				TelaServicoBabysitter TSB = new TelaServicoBabysitter();
+				TSB.show();
+			}
+		});
 		btnBabysitte.setBounds(215, 34, 111, 46);
 		panel.add(btnBabysitte);
 		
