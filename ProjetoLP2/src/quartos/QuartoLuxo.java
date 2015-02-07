@@ -79,6 +79,7 @@ public class QuartoLuxo extends Quarto {
 	 * 
 	 * @return uma string representando o tipo de quarto.
 	 */
+	@Override
 	public String getTipoDeQuarto() {
 		/*
 		 * se a capaciade maxima do quarto for 1 ele é do tipo "simples", se
