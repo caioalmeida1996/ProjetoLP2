@@ -30,6 +30,7 @@ public class TelaServicoRestaurante extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaServicoRestaurante() {
+		setTitle("Restaurante");
 		
 		setBounds(420, 250, 456, 306);
 		contentPane = new JPanel();

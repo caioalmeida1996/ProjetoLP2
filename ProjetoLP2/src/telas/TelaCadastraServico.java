@@ -25,6 +25,7 @@ public class TelaCadastraServico extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastraServico() {
+		setTitle("Cadastra Servi\u00E7o");
 
 		setBounds(300, 120, 719, 486);
 		contentPane = new JPanel();

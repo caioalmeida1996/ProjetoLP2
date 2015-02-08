@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -31,6 +32,7 @@ public class TelaCadastraQuarto extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastraQuarto() {
+		setTitle("Cadastra Quarto");
 		
 		setBounds(300, 120, 719, 486);
 		contentPane = new JPanel();
@@ -43,6 +45,13 @@ public class TelaCadastraQuarto extends JFrame {
 		contentPane.add(btnNovo);
 
 		JButton btnListaDeQuartos = new JButton("Lista de Quartos");
+		btnListaDeQuartos.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				TelaQuartoLista TQL = new TelaQuartoLista();
+				TQL.show();
+			}
+		});
 		btnListaDeQuartos.setBounds(148, 412, 132, 23);
 		contentPane.add(btnListaDeQuartos);
 

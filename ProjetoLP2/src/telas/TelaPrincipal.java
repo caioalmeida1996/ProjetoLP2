@@ -43,6 +43,7 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
+		setTitle("Hotel Riviera Campina");
 		
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(0, 0,screen.width,screen.height - 30);

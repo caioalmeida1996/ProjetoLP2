@@ -25,6 +25,7 @@ public class TelaFichaHospedes extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaFichaHospedes() {
+		setTitle("Ficha de Hospedes");
 		
 		setBounds(400, 200, 729, 489);
 		contentPane = new JPanel();

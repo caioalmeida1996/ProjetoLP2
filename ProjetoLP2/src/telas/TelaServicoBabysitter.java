@@ -32,6 +32,7 @@ public class TelaServicoBabysitter extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaServicoBabysitter() {
+		setTitle("BabySitter");
 		
 		setBounds(420, 250, 456, 306);
 		contentPane = new JPanel();

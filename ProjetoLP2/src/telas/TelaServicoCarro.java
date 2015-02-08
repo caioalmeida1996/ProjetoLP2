@@ -26,6 +26,7 @@ public class TelaServicoCarro extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaServicoCarro() {
+		setTitle("Carro");
 		
 		setBounds(420, 250, 456, 306);
 		contentPane = new JPanel();

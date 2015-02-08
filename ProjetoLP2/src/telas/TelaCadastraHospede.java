@@ -42,6 +42,7 @@ public class TelaCadastraHospede extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastraHospede() {
+		setTitle("Cadastra Hospede");
 		
 		setBounds(300, 120, 641, 510);
 
