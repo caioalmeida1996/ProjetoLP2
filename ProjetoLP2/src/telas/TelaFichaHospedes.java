@@ -26,7 +26,7 @@ public class TelaFichaHospedes extends JFrame {
 	 */
 	public TelaFichaHospedes() {
 		
-		setBounds(100, 100, 729, 489);
+		setBounds(400, 200, 729, 489);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

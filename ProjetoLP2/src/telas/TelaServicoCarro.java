@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class TelaServicoCarro extends JFrame {
 
@@ -78,6 +79,10 @@ public class TelaServicoCarro extends JFrame {
 		txtHospede.setBounds(23, 195, 86, 20);
 		contentPane.add(txtHospede);
 		txtHospede.setColumns(10);
+		
+		JButton btnAdiconar = new JButton("Adiconar");
+		btnAdiconar.setBounds(119, 194, 89, 23);
+		contentPane.add(btnAdiconar);
 	}
 
 }

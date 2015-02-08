@@ -8,6 +8,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class TelaServicoBabysitter extends JFrame {
 
@@ -67,16 +68,18 @@ public class TelaServicoBabysitter extends JFrame {
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
+		
+		JButton btnAdiconar = new JButton("Adiconar");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblBabysitter)
 							.addContainerGap(370, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblInicio)
 								.addComponent(lblData)
@@ -99,7 +102,9 @@ public class TelaServicoBabysitter extends JFrame {
 							.addComponent(lblHospede)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap(282, Short.MAX_VALUE))))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnAdiconar)
+							.addContainerGap(187, Short.MAX_VALUE))))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -128,10 +133,11 @@ public class TelaServicoBabysitter extends JFrame {
 							.addComponent(label_1)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblHospede)
-						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAdiconar))
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
