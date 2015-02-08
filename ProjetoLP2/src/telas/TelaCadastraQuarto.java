@@ -21,8 +21,12 @@ public class TelaCadastraQuarto extends JFrame {
 	private JComboBox<?> tfTipoDeQuarto;
 	private JTextField tfNomeDoHospede;
 	private JComboBox<?> tfNumDePessoas;
-	private JTextField tfDataDeEntrada;
-	private JTextField tfDataDeSaida;
+	private JTextField tfDiaDeEntrada;
+	private JTextField tfDiaDeSaida;
+	private JTextField tfMesDeEntrada;
+	private JTextField tfAnoDeEntrada;
+	private JTextField tfMesDeSaida;
+	private JTextField tfAnoDeSaida;
 
 	/**
 	 * Launch the application.
@@ -97,21 +101,65 @@ public class TelaCadastraQuarto extends JFrame {
 		contentPane.add(tfNumDePessoas);
 
 		JLabel lblDataDeEntrada = new JLabel("Data de Entrada");
-		lblDataDeEntrada.setBounds(369, 76, 94, 14);
+		lblDataDeEntrada.setBounds(365, 23, 94, 14);
 		contentPane.add(lblDataDeEntrada);
 
 		JLabel lblDataDeSaida = new JLabel("Data de Saida");
 		lblDataDeSaida.setBounds(369, 183, 86, 14);
 		contentPane.add(lblDataDeSaida);
 
-		tfDataDeEntrada = new JTextField();
-		tfDataDeEntrada.setBounds(369, 106, 86, 20);
-		contentPane.add(tfDataDeEntrada);
-		tfDataDeEntrada.setColumns(10);
+		tfDiaDeEntrada = new JTextField();
+		tfDiaDeEntrada.setBounds(397, 48, 86, 20);
+		contentPane.add(tfDiaDeEntrada);
+		tfDiaDeEntrada.setColumns(10);
 
-		tfDataDeSaida = new JTextField();
-		tfDataDeSaida.setBounds(369, 208, 86, 20);
-		contentPane.add(tfDataDeSaida);
-		tfDataDeSaida.setColumns(10);
+		tfDiaDeSaida = new JTextField();
+		tfDiaDeSaida.setBounds(397, 205, 86, 20);
+		contentPane.add(tfDiaDeSaida);
+		tfDiaDeSaida.setColumns(10);
+		
+		JLabel lblDia = new JLabel("Dia");
+		lblDia.setBounds(365, 51, 46, 14);
+		contentPane.add(lblDia);
+		
+		JLabel lblMes = new JLabel("Mes");
+		lblMes.setBounds(365, 76, 46, 14);
+		contentPane.add(lblMes);
+		
+		JLabel lblAno = new JLabel("Ano");
+		lblAno.setBounds(365, 101, 46, 14);
+		contentPane.add(lblAno);
+		
+		tfMesDeEntrada = new JTextField();
+		tfMesDeEntrada.setBounds(397, 73, 86, 20);
+		contentPane.add(tfMesDeEntrada);
+		tfMesDeEntrada.setColumns(10);
+		
+		tfAnoDeEntrada = new JTextField();
+		tfAnoDeEntrada.setBounds(397, 101, 86, 20);
+		contentPane.add(tfAnoDeEntrada);
+		tfAnoDeEntrada.setColumns(10);
+		
+		JLabel label = new JLabel("Dia");
+		label.setBounds(369, 208, 46, 14);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("Mes");
+		label_1.setBounds(369, 233, 46, 14);
+		contentPane.add(label_1);
+		
+		JLabel label_2 = new JLabel("Ano");
+		label_2.setBounds(369, 258, 46, 14);
+		contentPane.add(label_2);
+		
+		tfMesDeSaida = new JTextField();
+		tfMesDeSaida.setBounds(397, 230, 86, 20);
+		contentPane.add(tfMesDeSaida);
+		tfMesDeSaida.setColumns(10);
+		
+		tfAnoDeSaida = new JTextField();
+		tfAnoDeSaida.setBounds(397, 255, 86, 20);
+		contentPane.add(tfAnoDeSaida);
+		tfAnoDeSaida.setColumns(10);
 	}
 }
