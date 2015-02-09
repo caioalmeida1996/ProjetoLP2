@@ -67,13 +67,14 @@ public class TelaPrincipal extends JFrame {
 		desktopPane.add(lblNewLabel);
 		lblNewLabel.setIcon(new ImageIcon("/home/alexandreg/Downloads/fachada-heritage-design-hotel.JPG"));
 		
-		
 		JButton btnHospede = new JButton("Check In");
 		btnHospede.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				TelaCadastraHospede TH = new TelaCadastraHospede();
 				TH.show();
+				
+				
 			}
 		});
 		btnHospede.setBounds(10, 51, 132, 35);

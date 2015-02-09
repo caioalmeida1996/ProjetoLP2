@@ -13,6 +13,7 @@ import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
+import javax.swing.JComboBox;
 
 public class TelaCadastraHospede extends JFrame {
 	/**
@@ -22,7 +23,7 @@ public class TelaCadastraHospede extends JFrame {
 	private JTextField tfNome;
 	private JTextField tfCPF;
 	private JTextField tfDataDeNascimento;
-	private JTextField tfTelefone;
+	private JTextField tfEndereco;
 	private JTextField tfNDoCartao;
 
 	/**
@@ -57,7 +58,6 @@ public class TelaCadastraHospede extends JFrame {
 		JButton btnGravar = new JButton("Gravar");
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Contrato contrato = new Contrato(tfNome.getText(), tfCPF.getText(), tfEndereco.getText());
 			}
 		});
 
@@ -72,15 +72,26 @@ public class TelaCadastraHospede extends JFrame {
 			}
 		});
 		
-		JLabel lblTelefone = new JLabel("Telefone");
+		JLabel lblEndereco = new JLabel("Endereco");
 		
 		JLabel lblN = new JLabel("N° Do Cartão");
 		
-		tfTelefone = new JTextField();
-		tfTelefone.setColumns(10);
+		tfEndereco = new JTextField();
+		tfEndereco.setColumns(10);
 		
 		tfNDoCartao = new JTextField();
 		tfNDoCartao.setColumns(10);
+		
+		
+		
+		JComboBox<String> comboBox = new JComboBox();
+		comboBox.addItem("Ré");
+		comboBox.addItem("ré");
+		comboBox.addItem("ré");
+		comboBox.addItem("ré");
+		
+		String variavel = (String) comboBox.getSelectedItem();
+
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -100,17 +111,18 @@ public class TelaCadastraHospede extends JFrame {
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(lblNome)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(tfNome, GroupLayout.PREFERRED_SIZE, 217, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(tfNome, GroupLayout.PREFERRED_SIZE, 217, GroupLayout.PREFERRED_SIZE))
+								.addComponent(comboBox, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))
 							.addGap(57)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblEndereco)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(tfEndereco, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(lblN)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(tfNDoCartao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblTelefone)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(tfTelefone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(tfNDoCartao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 							.addContainerGap(75, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnNovo)
@@ -129,8 +141,8 @@ public class TelaCadastraHospede extends JFrame {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNome)
 						.addComponent(tfNome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblTelefone)
-						.addComponent(tfTelefone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblEndereco)
+						.addComponent(tfEndereco, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblCpf)
@@ -141,14 +153,16 @@ public class TelaCadastraHospede extends JFrame {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblDataDeNascimento)
 						.addComponent(tfDataDeNascimento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(304)
+					.addGap(100)
+					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(180)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnNovo)
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 							.addComponent(btnFichaDeHospedes_1)
 							.addComponent(btnExcluir)
 							.addComponent(btnGravar)))
-					.addContainerGap(38, Short.MAX_VALUE))
+					.addContainerGap(34, Short.MAX_VALUE))
 		);
 		getContentPane().setLayout(groupLayout);
 
