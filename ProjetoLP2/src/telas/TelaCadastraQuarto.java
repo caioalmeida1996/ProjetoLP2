@@ -18,9 +18,9 @@ public class TelaCadastraQuarto extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JComboBox<?> tfTipoDeQuarto;
+	private JComboBox<String> tfTipoDeQuarto;
 	private JTextField tfNomeDoHospede;
-	private JComboBox<?> tfNumDePessoas;
+	private JComboBox<String> tfNumDePessoas;
 	private JTextField tfDiaDeEntrada;
 	private JTextField tfDiaDeSaida;
 	private JTextField tfMesDeEntrada;
@@ -67,21 +67,20 @@ public class TelaCadastraQuarto extends JFrame {
 		btnExcluir.setBounds(443, 412, 89, 23);
 		contentPane.add(btnExcluir);
 
-		JButton btnFechar = new JButton("Fechar");
-		btnFechar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnFechar.setBounds(564, 412, 89, 23);
-		contentPane.add(btnFechar);
-
 		JLabel lblTipoDeQuarto = new JLabel("Tipo de Quarto");
 		lblTipoDeQuarto.setBounds(30, 69, 94, 29);
 		contentPane.add(lblTipoDeQuarto);
 
-		tfTipoDeQuarto = new JComboBox<Object>();
-		tfTipoDeQuarto.setBounds(129, 73, 86, 20);
+		tfTipoDeQuarto = new JComboBox<String>();
+		tfTipoDeQuarto.setBounds(129, 73, 151, 20);
 		contentPane.add(tfTipoDeQuarto);
+		tfTipoDeQuarto.addItem("Presidencial");
+		tfTipoDeQuarto.addItem("Luxo Simples");
+		tfTipoDeQuarto.addItem("Luxo Duplo");
+		tfTipoDeQuarto.addItem("Luxo Triplo");
+		tfTipoDeQuarto.addItem("Executivo Simples");
+		tfTipoDeQuarto.addItem("Executivo Duplo");
+		tfTipoDeQuarto.addItem("Executivo Triplo");
 
 		JLabel lblNomeDoHospede = new JLabel("Nome Do Hospede");
 		lblNomeDoHospede.setBounds(30, 109, 94, 14);
@@ -96,9 +95,13 @@ public class TelaCadastraQuarto extends JFrame {
 		lblNDePessoas.setBounds(30, 137, 86, 14);
 		contentPane.add(lblNDePessoas);
 
-		tfNumDePessoas = new JComboBox<Object>();
+		tfNumDePessoas = new JComboBox<String>();
 		tfNumDePessoas.setBounds(129, 134, 86, 20);
 		contentPane.add(tfNumDePessoas);
+		tfNumDePessoas.addItem("1");
+		tfNumDePessoas.addItem("2");
+		tfNumDePessoas.addItem("3");
+		tfNumDePessoas.addItem("4");
 
 		JLabel lblDataDeEntrada = new JLabel("Data de Entrada");
 		lblDataDeEntrada.setBounds(365, 23, 94, 14);

@@ -34,16 +34,16 @@ public class TelaFichaHospedes extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblHospede = new JLabel("Hospede");
-		lblHospede.setBounds(10, 35, 54, 14);
+		lblHospede.setBounds(10, 35, 86, 14);
 		contentPane.add(lblHospede);
 		
 		textField = new JTextField();
-		textField.setBounds(84, 32, 271, 20);
+		textField.setBounds(114, 33, 361, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnProcurar = new JButton("Procurar");
-		btnProcurar.setBounds(365, 31, 89, 23);
+		btnProcurar.setBounds(487, 31, 117, 23);
 		contentPane.add(btnProcurar);
 	}
 }

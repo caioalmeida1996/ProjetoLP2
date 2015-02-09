@@ -16,6 +16,7 @@ public class TelaServicoCarro extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtHospede;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -28,8 +29,9 @@ public class TelaServicoCarro extends JFrame {
 	public TelaServicoCarro() {
 		setTitle("Carro");
 		
-		setBounds(420, 250, 456, 306);
+		setBounds(420, 250, 572, 402);
 		contentPane = new JPanel();
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -60,7 +62,7 @@ public class TelaServicoCarro extends JFrame {
 		contentPane.add(rdbtnSeguro);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(211, 50, 219, 207);
+		panel_1.setBounds(269, 50, 277, 207);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -71,6 +73,19 @@ public class TelaServicoCarro extends JFrame {
 		JLabel lblDataFinal = new JLabel("Data Final");
 		lblDataFinal.setBounds(10, 102, 79, 14);
 		panel_1.add(lblDataFinal);
+		
+		JLabel lblDia = new JLabel("Dia");
+		lblDia.setBounds(0, 37, 42, 15);
+		panel_1.add(lblDia);
+		
+		textField = new JTextField();
+		textField.setBounds(35, 35, 42, 19);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblMes = new JLabel("Mes");
+		lblMes.setBounds(95, 37, 70, 15);
+		panel_1.add(lblMes);
 		
 		JLabel lblHospede = new JLabel("Hospede");
 		lblHospede.setBounds(23, 170, 59, 14);
@@ -85,5 +100,4 @@ public class TelaServicoCarro extends JFrame {
 		btnAdiconar.setBounds(119, 194, 89, 23);
 		contentPane.add(btnAdiconar);
 	}
-
 }

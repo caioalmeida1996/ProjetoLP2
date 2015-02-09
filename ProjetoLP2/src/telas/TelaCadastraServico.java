@@ -57,7 +57,7 @@ public class TelaCadastraServico extends JFrame {
 				TSB.show();
 			}
 		});
-		btnBabysitte.setBounds(215, 34, 111, 46);
+		btnBabysitte.setBounds(279, 34, 111, 46);
 		panel.add(btnBabysitte);
 
 		JButton btnRestaurante = new JButton("Restaurante");
@@ -68,12 +68,8 @@ public class TelaCadastraServico extends JFrame {
 				TSR.show();
 			}
 		});
-		btnRestaurante.setBounds(378, 34, 111, 46);
+		btnRestaurante.setBounds(484, 34, 139, 46);
 		panel.add(btnRestaurante);
-
-		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(541, 34, 111, 46);
-		panel.add(btnSair);
 
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBounds(0, 99, 708, 354);

@@ -1,3 +1,4 @@
+
 package telas;
 
 import java.awt.Dimension;
@@ -14,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class TelaPrincipal extends JFrame {
 
@@ -56,8 +59,13 @@ public class TelaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBounds(0, 87, 1365, 613);
+		desktopPane.setBounds(-492, 111, 1365, 613);
 		contentPane.add(desktopPane);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(574, 51, 610, 468);
+		desktopPane.add(lblNewLabel);
+		lblNewLabel.setIcon(new ImageIcon("/home/alexandreg/Downloads/fachada-heritage-design-hotel.JPG"));
 		
 		JButton btnHospede = new JButton("Hospedes");
 		btnHospede.addActionListener(new ActionListener() {
@@ -99,9 +107,5 @@ public class TelaPrincipal extends JFrame {
 		JButton btnRelatorio = new JButton("Relat\u00F3rio");
 		btnRelatorio.setBounds(578, 51, 132, 35);
 		contentPane.add(btnRelatorio);
-		
-		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(720, 51, 132, 35);
-		contentPane.add(btnSair);
 	}
 }

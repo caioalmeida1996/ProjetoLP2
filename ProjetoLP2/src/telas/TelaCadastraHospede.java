@@ -141,8 +141,6 @@ public class TelaCadastraHospede extends JFrame {
 				TFH.show();
 			}
 		});
-
-		JButton btnFechar = new JButton("Fechar");
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -232,10 +230,8 @@ public class TelaCadastraHospede extends JFrame {
 							.addGap(18)
 							.addComponent(btnExcluir)
 							.addGap(18)
-							.addComponent(btnFichaDeHospedes_1)
-							.addGap(10)
-							.addComponent(btnFechar)))
-					.addContainerGap(16, Short.MAX_VALUE))
+							.addComponent(btnFichaDeHospedes_1)))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -348,8 +344,7 @@ public class TelaCadastraHospede extends JFrame {
 						.addComponent(btnNovo)
 						.addComponent(btnGravar)
 						.addComponent(btnExcluir)
-						.addComponent(btnFichaDeHospedes_1)
-						.addComponent(btnFechar))
+						.addComponent(btnFichaDeHospedes_1))
 					.addGap(120))
 		);
 		getContentPane().setLayout(groupLayout);
