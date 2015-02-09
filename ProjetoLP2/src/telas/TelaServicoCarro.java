@@ -17,6 +17,8 @@ public class TelaServicoCarro extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtHospede;
 	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -54,7 +56,7 @@ public class TelaServicoCarro extends JFrame {
 		panel.add(rdbtnExecutivo);
 		
 		JRadioButton rdbtnTanqueCheio = new JRadioButton("Tanque Cheio");
-		rdbtnTanqueCheio.setBounds(23, 86, 109, 23);
+		rdbtnTanqueCheio.setBounds(23, 86, 134, 23);
 		contentPane.add(rdbtnTanqueCheio);
 		
 		JRadioButton rdbtnSeguro = new JRadioButton("Seguro");
@@ -87,8 +89,22 @@ public class TelaServicoCarro extends JFrame {
 		lblMes.setBounds(95, 37, 70, 15);
 		panel_1.add(lblMes);
 		
+		textField_1 = new JTextField();
+		textField_1.setBounds(134, 35, 42, 19);
+		panel_1.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(229, 35, 36, 19);
+		panel_1.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblAno = new JLabel("Ano");
+		lblAno.setBounds(195, 37, 70, 15);
+		panel_1.add(lblAno);
+		
 		JLabel lblHospede = new JLabel("Hospede");
-		lblHospede.setBounds(23, 170, 59, 14);
+		lblHospede.setBounds(23, 170, 86, 14);
 		contentPane.add(lblHospede);
 		
 		txtHospede = new JTextField();
