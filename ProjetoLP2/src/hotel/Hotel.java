@@ -29,4 +29,5 @@ public class Hotel {
 		return this.contratos.remove(contratos);
 	}
 	
+	
 }// fim da classe
