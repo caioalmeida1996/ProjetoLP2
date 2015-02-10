@@ -1,13 +1,25 @@
 package telas;
 
+import hospede.Hospede;
+import hotel.Hotel;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTextPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JScrollPane;
+
+import contrato.Contrato;
 
 public class TelaFichaHospedes extends JFrame {
 
@@ -18,6 +30,7 @@ public class TelaFichaHospedes extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField tfProcurarHospede;
+	private JList<Hospede> list = null;
 
 	/**
 	 * Launch the application.
@@ -46,12 +59,43 @@ public class TelaFichaHospedes extends JFrame {
 		contentPane.add(tfProcurarHospede);
 		tfProcurarHospede.setColumns(10);
 		
+		JScrollPane TelaMostraHospede = new JScrollPane();
+		TelaMostraHospede.setBounds(20, 62, 685, 387);
+		contentPane.add(TelaMostraHospede);
+		
+		list = new JList<Hospede>();
+		TelaMostraHospede.setViewportView(list);
+		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
+		
 		JButton btnProcurar = new JButton("Procurar");
+		btnProcurar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listModel.clear();
+				String busca = tfProcurarHospede.getText();
+				
+				if (busca.length() < 2) {
+					JOptionPane.showMessageDialog(null,
+							"Seja mais especifico em sua busca");
+				} else {
+					try {
+						Long.parseLong(busca);
+						for (int i = 0; i < TelaPrincipal.hotel.getContratos().size(); i++) {
+							if (TelaPrincipal.hotel.getContratos().get(i).getHospede().getNome().contains(busca))
+								listModel.addElement(TelaPrincipal.hotel.getContratos().get(i).getHospede());
+						}
+					} catch (Exception e1) {
+						for (int i = 0; i < TelaPrincipal.hotel.getContratos().size(); i++) {
+							if (TelaPrincipal.hotel.getContratos().get(i).getHospede().getNome().contains(busca))
+								listModel.addElement(TelaPrincipal.hotel.getContratos().get(i).getHospede());
+						}
+					}
+				}
+				
+			}
+		});
 		btnProcurar.setBounds(487, 31, 117, 23);
 		contentPane.add(btnProcurar);
 		
-		JTextPane tpMostrarHospedes = new JTextPane();
-		tpMostrarHospedes.setBounds(20, 61, 697, 388);
-		contentPane.add(tpMostrarHospedes);
+	
 	}
 }

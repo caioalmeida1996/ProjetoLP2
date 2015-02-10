@@ -1,6 +1,10 @@
 
 package telas;
 
+
+
+import hotel.Hotel;
+
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -13,10 +17,14 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+
+import contrato.Contrato;
+
 
 public class TelaPrincipal extends JFrame {
 
@@ -26,10 +34,16 @@ public class TelaPrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
+	public static Hotel hotel;
+	private static ArrayList<Contrato> contratos = new ArrayList<Contrato>(); 
+
+
+
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
+		hotel = new Hotel(null); /// criando o hotel;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -40,11 +54,19 @@ public class TelaPrincipal extends JFrame {
 				}
 			}
 		});
+		
+		
 	}
 
 	/**
 	 * Create the frame.
 	 */
+	
+	
+	public Hotel getHotel() {
+		return hotel;
+	}
+	
 	public TelaPrincipal() {
 		setTitle("Hotel Riviera Campina");
 		
@@ -128,4 +150,6 @@ public class TelaPrincipal extends JFrame {
 		btnSair.setBounds(723, 51, 132, 35);
 		contentPane.add(btnSair);
 	}
+
+
 }
