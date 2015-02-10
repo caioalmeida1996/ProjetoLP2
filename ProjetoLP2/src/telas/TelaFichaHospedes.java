@@ -41,6 +41,7 @@ public class TelaFichaHospedes extends JFrame {
 		contentPane.add(lblHospede);
 		
 		tfProcurarHospede = new JTextField();
+		tfProcurarHospede.setText("Digite o nome do Hospede");
 		tfProcurarHospede.setBounds(114, 33, 361, 20);
 		contentPane.add(tfProcurarHospede);
 		tfProcurarHospede.setColumns(10);
