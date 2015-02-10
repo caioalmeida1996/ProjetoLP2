@@ -1,31 +1,45 @@
 package aluguelCarros;
 
-
 import java.util.Calendar;
 
 import servicos.ServicoSuplementar;
 
 /**
  * Classe Aluguel de Carro
+ * 
  * @author Alexandre, Heitor, Caio e Akylles.@author AKYLLES
  *
  */
-public abstract class AluguelCarro extends ServicoSuplementar{
+public abstract class AluguelCarro extends ServicoSuplementar {
+
+	private static double valorTanqueCheio = 150.00; // O valor padrao eh 150,
+														// mas pode ser alterado
+														// de acordo com a
+														// preferencia do
+														// operador do programa
 	
-	private static double valorTanqueCheio = 150.00; // O valor padrao eh 150, mas pode ser alterado de acordo com a preferencia do operador do programa
-	private static double valorSeguro = 100.00;     // O valor padrao eh 100, mas pode ser alterado de acordo com a preferencia do operador do programa
-	private String placa;                          // Uma referencia a uma placa de carro.
-	private boolean temTanqueCheio;               // Indica se o carro foi alugado com tanque cheio ou nao
-	private boolean temSeguro;					 // Indica se o carro foi alugado com seguro ou nao
-	private Calendar dataDevolucao;             // a data em que o carro alugado foi devolvido ao hotel 
+	private static double valorSeguro = 100.00; // O valor padrao eh 100, mas
+												// pode ser alterado de acordo
+												// com a preferencia do operador
+												// do programa
 	
+	private String placa; // Uma referencia a uma placa de carro.
+	private boolean temTanqueCheio; // Indica se o carro foi alugado com tanque
+									// cheio ou nao
+	private boolean temSeguro; // Indica se o carro foi alugado com seguro ou
+								// nao
+	private Calendar dataDevolucao; // a data em que o carro alugado foi
+									// devolvido ao hotel
+
 	/**
 	 * Construtor da classe
 	 * 
 	 * @param temTanqueCheio
-	 * 			Um valor booleano que atesta se o carro foi alugado com o tanque cheio
+	 *            Um valor booleano que atesta se o carro foi alugado com o
+	 *            tanque cheio
 	 * @param temSeguro
-	 * 			Um valor booleano que atesta se o carro foi alugado com seguro incluso
+	 *            Um valor booleano que atesta se o carro foi alugado com seguro
+	 *            incluso
 	 */
 	public AluguelCarro(String placa, boolean temTanqueCheio, boolean temSeguro) {
 		super();
@@ -33,7 +47,6 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 		this.temSeguro = temSeguro;
 	}// fim do construtor
 
-	
 	// ----------------------metodos sets--------------------
 	/**
 	 * Configura o valor cobrado pelo aditivo tanque cheio
@@ -43,7 +56,7 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 	public static void setValorTanqueCheio(double valorTanqueCheio) {
 		AluguelCarro.valorTanqueCheio = valorTanqueCheio;
 	}
-	
+
 	/**
 	 * Configura o valor cobrado pelo seguro do carro
 	 * 
@@ -52,21 +65,18 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 	public static void setValorSeguro(double valorSeguro) {
 		AluguelCarro.valorSeguro = valorSeguro;
 	}
-	
+
 	/**
 	 * Configura a data e hora em que o carro alugado foi devolvido ao hotel
 	 * 
 	 * @param dataFinal
-	 * 			(Calendar) A data de devolucao.
+	 *            (Calendar) A data de devolucao.
 	 */
-	public void setDataDevolucao(Calendar dataFinal){
+	public void setDataDevolucao(Calendar dataFinal) {
 		this.dataDevolucao = dataFinal;
 	}
-	
-	
-	
-	
-	//-----------------------metodos gets----------------------------
+
+	// -----------------------metodos gets----------------------------
 
 	/**
 	 * Recupera o valor adicional relacionado ao tanque cheio
@@ -85,7 +95,7 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 	public static double getValorSeguro() {
 		return valorSeguro;
 	}
-	
+
 	/**
 	 * Recupera a placa do carro
 	 * 
@@ -94,7 +104,6 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 	public String getPlaca() {
 		return placa;
 	}
-
 
 	/**
 	 * Recupera a data em que o carro foi devolvido.
@@ -110,22 +119,36 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 	 * 
 	 * @return (int) O numero de dias de aluguel do carro.
 	 */
-	public int getNumeroDiasAluguel(){
-		long dataInicial = super.getDataSolicitacao().getTimeInMillis();  // A data de solicitação em milisegundos
-		long dataFinal = this.getDataDevolucao().getTimeInMillis();	      // A data de devolução em milisegundos
-		final int DIA_MILISEGUNDOS = 24 * 60 * 60 * 1000;                 // O valor correspondente a um dia em milisegundos
+	public int getNumeroDiasAluguel() {
+		long dataInicial = super.getDataSolicitacao().getTimeInMillis(); // A
+																			// data
+																			// de
+																			// solicitação
+																			// em
+																			// milisegundos
 		
-		// Calcula a quantidade de dias em que o carro esteve alugado e atribui o resultado a uma variavel
-		int quantidadeDiasAluguel = ((int)((dataFinal - dataInicial) / DIA_MILISEGUNDOS)) + 1;
+		long dataFinal = this.getDataDevolucao().getTimeInMillis(); // A data de
+																	// devolução
+																	// em
+																	// milisegundos
 		
+		final int DIA_MILISEGUNDOS = 24 * 60 * 60 * 1000; // O valor
+															// correspondente a
+															// um dia em
+															// milisegundos
+
+		// Calcula a quantidade de dias em que o carro esteve alugado e atribui
+		// o resultado a uma variavel
+		int quantidadeDiasAluguel = ((int) ((dataFinal - dataInicial) / DIA_MILISEGUNDOS)) + 1;
+
 		return quantidadeDiasAluguel;
 	}
-	
+
 	/**
 	 * Verifica se o carro foi alugado com tanque cheio
 	 * 
-	 * @return true = Foi alugado com tanque cheio
-	 * 		   false = Nao foi alugado com tanque cheio	
+	 * @return true = Foi alugado com tanque cheio false = Nao foi alugado com
+	 *         tanque cheio
 	 */
 	public boolean temTanqueCheio() {
 		return temTanqueCheio;
@@ -134,37 +157,37 @@ public abstract class AluguelCarro extends ServicoSuplementar{
 	/**
 	 * Verifica se o carro foi alugado com seguro incluso
 	 * 
-	 * @return true = Foi alugado com seguro
-	 * 		   false = Nao foi alugado com seguro	
+	 * @return true = Foi alugado com seguro false = Nao foi alugado com seguro
 	 */
 	public boolean temSeguro() {
 		return temSeguro;
 	}
-	
+
 	/**
-	 * Recupera o valor dos aditivos tanque cheio e gasolina
-	 * relacionados ao aluguel do carro.
+	 * Recupera o valor dos aditivos tanque cheio e gasolina relacionados ao
+	 * aluguel do carro.
 	 * 
 	 * @return (double) O valor dos aditivos.
 	 */
-	public double getAditivos(){
-		if (temTanqueCheio && temSeguro){
+	public double getAditivos() {
+		if (temTanqueCheio && temSeguro) {
 			return getValorTanqueCheio() + getValorSeguro();
 		}
-		if (temTanqueCheio){
+		if (temTanqueCheio) {
 			return getValorTanqueCheio();
 		}
-		if (temSeguro){
+		if (temSeguro) {
 			return getValorSeguro();
 		}
 		return 0.0;
 	}
-	
+
 	public abstract double getDiaria();
-	
+
 	@Override
 	public double custo() {
-		return this.getNumeroDiasAluguel() * this.getDiaria() + this.getAditivos();
+		return this.getNumeroDiasAluguel() * this.getDiaria()
+				+ this.getAditivos();
 	}
-	
+
 }// final da classe
