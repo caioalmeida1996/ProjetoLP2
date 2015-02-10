@@ -22,6 +22,7 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import javax.swing.text.MaskFormatter;
 
+import quartos.QuartoExecutivo;
 import quartos.SuitePresidencial;
 
 public class TelaCheckIn extends JFrame {
@@ -40,6 +41,7 @@ public class TelaCheckIn extends JFrame {
 	private JTextField tfDataEntrada;
 	private JTextField tfDataSaida;
 	private JComboBox<String> comboBoxTipoDeQuarto = new JComboBox<String>();
+	private JRadioButton RadioButtonCamaExtra = new JRadioButton("Cama extra");
 
 	/**
 	 * Launch the application.
@@ -160,7 +162,7 @@ public class TelaCheckIn extends JFrame {
 		JLabel lblQuarto = new JLabel("Quarto:");
 		lblQuarto.setBounds(20, 195, 55, 14);
 
-		JRadioButton RadioButtonCamaExtra = new JRadioButton("Cama extra");
+		
 		RadioButtonCamaExtra.setBounds(20, 247, 111, 23);
 
 		JLabel label = new JLabel("N\u00BA de pessoas");
@@ -249,7 +251,9 @@ public class TelaCheckIn extends JFrame {
 				// "Cadastro feito com sucesso!");
 				String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem()
 						.toString();
-				if (itemSelecionado.equals("Presidencial")) {
+				
+				switch (itemSelecionado) {
+				case "Presidencial":
 					try {
 						SuitePresidencial suiteP = new SuitePresidencial(
 								calEntrada, calSaida, hospede.getNome());
@@ -259,7 +263,30 @@ public class TelaCheckIn extends JFrame {
 						System.out
 								.println("qubrou na criaçao da suite Presidencial");
 					}
+					break;
+					
+				case "QuartoExecutivoSimples":
+					try {
+						QuartoExecutivo quartoExecutivo = new QuartoExecutivo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
+					} catch (Exception e){
+						JOptionPane.showMessageDialog(null, e.getMessage());
+					}
+				default:
+					break;
 				}
+				
+				if (itemSelecionado.equals("Presidencial")) {
+					try {
+						SuitePresidencial suiteP = new SuitePresidencial(
+								calEntrada, calSaida, hospede.getNome());
+					} catch (Exception e) {
+						JOptionPane.showMessageDialog(null, e.getMessage());
+						// e.printStackTrace();
+//						System.out
+//								.println("qubrou na criaçao da suite Presidencial");
+					}
+				}
+//				if (itemSelecionado.equals("
 				
 			}
 
