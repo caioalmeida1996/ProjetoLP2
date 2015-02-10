@@ -125,6 +125,7 @@ public abstract class Quarto extends ServicoTrivial{
 	 * 
 	 * @return um double contendo o valor da hospedagem.
 	 */
+	@Override
 	public double custo() {
 		return getNumeroDiasAluguel() * getValorDiaria();
 	}
