@@ -49,6 +49,9 @@ public class Babysitter extends ServicoSuplementar{
 		return quantidadeHoras;
 	}
 
+	/**
+	 * calcula o custo do baby sister, dependendo da hora em que o servico foi prestado.
+	 */
 	@Override
 	public double custo() {
 		int somador = 0;  // somador dos valores de todas as horas de babysitter 
