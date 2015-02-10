@@ -109,5 +109,15 @@ public class TelaPrincipal extends JFrame {
 		JButton btnRelatorio = new JButton("Relat\u00F3rio");
 		btnRelatorio.setBounds(578, 51, 132, 35);
 		contentPane.add(btnRelatorio);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hide();
+				System.exit(0);
+			}
+		});
+		btnSair.setBounds(723, 51, 132, 35);
+		contentPane.add(btnSair);
 	}
 }
