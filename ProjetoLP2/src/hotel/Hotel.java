@@ -9,32 +9,49 @@ import contrato.Contrato;
 public class Hotel {
 
 	private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
-	private ArrayList<Hospede> hospedes = new ArrayList<Hospede>();
 
 	public Hotel(ArrayList<Contrato> contratos) {
 		super();
 		this.contratos = contratos;
 	}
 	
+	// Caso de uso 1
 	
-//	public ArrayList<Hospede> getHospedes() {
-//		for (int i = 0; i < contratos.size(); i++) {
-//			hospedes.add(contratos.get(i).getHospede());			
-//		}
-//		return hospedes;
-//	}
-//
-//	
-//	public boolean pesquisaHospede(String nome){
-//		getHospedes();
-//		return this.contratos.contains(contrato);
-//	}
-//	
-//	public boolean removeContrato(){
-//		return this.contratos.remove(contratos);
-//	}
+	/**
+	 * Classe que pesquisa um hospede do hotel a partir do nome
+	 * @param nome
+	 * @return o objeto Hospede referente ao nome passado com parametro
+	 */
+	public Hospede pesquisaHospede(String nome){
+		for (Contrato contrato : contratos) {
+			if (contrato.getHospede().getNome().equals(nome)){
+				return contrato.getHospede();
+			}
+		}
+		return null;
+	}
 	
-	// -------------------caso 3 do projeto-------------------------------
+	public boolean atualizaHospede(Hospede antigoHospede, Hospede novoHospede){
+		for (int i = 0; i < contratos.size(); i++){
+			if (contratos.get(i).getHospede().equals(antigoHospede)){
+				contratos.get(i).setHospede(novoHospede);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean removeHospede(Hospede hospede){
+		for (int i = 0; i < contratos.size(); i++) {
+			if (contratos.get(i).getHospede().equals(hospede)){
+				return contratos.remove(contratos.get(i));
+			}
+		}
+		return false;
+	}
+	
+	//
+	
 	public ArrayList<Contrato> getContratos() {
 		return contratos;
 	}
@@ -50,6 +67,5 @@ public class Hotel {
 	public boolean removeContrato(Contrato contrato){
 		return this.contratos.remove(contrato);
 	}
-	
 	
 }// fim da classe
