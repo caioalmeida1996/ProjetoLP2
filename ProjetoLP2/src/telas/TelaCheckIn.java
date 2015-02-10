@@ -20,9 +20,11 @@ import java.util.Calendar;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.JComboBox;
+import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 import javax.swing.text.MaskFormatter;
 
 import quartos.QuartoExecutivo;
+import quartos.QuartoLuxo;
 import quartos.SuitePresidencial;
 
 public class TelaCheckIn extends JFrame {
@@ -42,6 +44,7 @@ public class TelaCheckIn extends JFrame {
 	private JTextField tfDataSaida;
 	private JComboBox<String> comboBoxTipoDeQuarto = new JComboBox<String>();
 	private JRadioButton RadioButtonCamaExtra = new JRadioButton("Cama extra");
+	
 
 	/**
 	 * Launch the application.
@@ -215,7 +218,6 @@ public class TelaCheckIn extends JFrame {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				boolean verificador = true;
 
 				// data de nascimento do hospede
 				SimpleDateFormat formatoHospede = new SimpleDateFormat(
@@ -247,46 +249,10 @@ public class TelaCheckIn extends JFrame {
 				Hospede hospede = new Hospede(tfNome.getText(),
 						tfCPF.getText(), calHospede, tfEndereco.getText(),
 						tfCartaoDeCredito.getText());
-				// JOptionPane.showMessageDialog(null,
-				// "Cadastro feito com sucesso!");
+				 
 				String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem()
 						.toString();
-				
-				switch (itemSelecionado) {
-				case "Presidencial":
-					try {
-						SuitePresidencial suiteP = new SuitePresidencial(
-								calEntrada, calSaida, hospede.getNome());
-					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, e.getMessage());
-						// e.printStackTrace();
-						System.out
-								.println("qubrou na criaçao da suite Presidencial");
-					}
-					break;
-					
-				case "QuartoExecutivoSimples":
-					try {
-						QuartoExecutivo quartoExecutivo = new QuartoExecutivo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
-					} catch (Exception e){
-						JOptionPane.showMessageDialog(null, e.getMessage());
-					}
-				default:
-					break;
-				}
-				
-				if (itemSelecionado.equals("Presidencial")) {
-					try {
-						SuitePresidencial suiteP = new SuitePresidencial(
-								calEntrada, calSaida, hospede.getNome());
-					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, e.getMessage());
-						// e.printStackTrace();
-//						System.out
-//								.println("qubrou na criaçao da suite Presidencial");
-					}
-				}
-//				if (itemSelecionado.equals("
+				criaQuartos(calEntrada, calSaida, hospede, itemSelecionado);
 				
 			}
 
@@ -318,5 +284,77 @@ public class TelaCheckIn extends JFrame {
 		comboBoxNdePessoas.addItem("3");
 		comboBoxNdePessoas.addItem("4");
 
+	}
+	public void criaQuartos(Calendar calEntrada, Calendar calSaida, Hospede hospede, String itemSelecionado){
+		switch (itemSelecionado) {
+		case "Presidencial":
+			try {
+				SuitePresidencial suiteP = new SuitePresidencial(calEntrada, calSaida, hospede.getNome());
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+			
+		case "Executivo Simples":
+			try {
+				QuartoExecutivo quartoExecutivo = new QuartoExecutivo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
+				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
+				System.out.println("criou um quarto2");
+			} catch (Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+		
+			break;
+		
+		case "Executivo Duplo":
+			try {
+				QuartoExecutivo quartoExecutivo = new QuartoExecutivo("duplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
+				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
+				System.out.println("criou um quarto3");
+			} catch (Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		
+		case "Executivo Triplo":
+			try {
+				QuartoExecutivo quartoExecutivo = new QuartoExecutivo("triplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
+				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
+				System.out.println("criou um quarto");
+			} catch (Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		
+		case "Luxo Simples":
+			try {
+				QuartoLuxo quartoLuxo = new QuartoLuxo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
+				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
+				System.out.println("criou um quarto");
+			} catch (Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		
+		case "Luxo Duplo":
+			try {
+				QuartoLuxo quartoLuxo = new QuartoLuxo("duplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
+				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
+				System.out.println("criou um quarto");
+			} catch (Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		
+		case "Luxo Triplo":
+			try {
+				QuartoLuxo quartoLuxo = new QuartoLuxo("triplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
+				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
+				System.out.println("criou um quarto");
+			} catch (Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
 	}
 }
