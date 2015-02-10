@@ -7,6 +7,8 @@ import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaContrato extends JFrame {
 
@@ -15,7 +17,7 @@ public class TelaContrato extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField tfProcurarHospede;
 
 	/**
 	 * Launch the application.
@@ -25,6 +27,7 @@ public class TelaContrato extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaContrato() {
+		setTitle("Contrato");
 
 		setBounds(400, 200, 729, 489);
 		contentPane = new JPanel();
@@ -32,20 +35,25 @@ public class TelaContrato extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(12, 77, 780, 446);
-		contentPane.add(textPane);
+		JTextPane tpMostrarContrato = new JTextPane();
+		tpMostrarContrato.setBounds(12, 77, 705, 372);
+		contentPane.add(tpMostrarContrato);
 
 		JLabel lblHospede = new JLabel("Hospede");
 		lblHospede.setBounds(12, 22, 70, 15);
 		contentPane.add(lblHospede);
 
-		textField = new JTextField();
-		textField.setBounds(100, 20, 384, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		tfProcurarHospede = new JTextField();
+		tfProcurarHospede.setBounds(100, 20, 384, 19);
+		contentPane.add(tfProcurarHospede);
+		tfProcurarHospede.setColumns(10);
 
 		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		btnPesquisar.setBounds(496, 17, 117, 25);
 		contentPane.add(btnPesquisar);
 	}
