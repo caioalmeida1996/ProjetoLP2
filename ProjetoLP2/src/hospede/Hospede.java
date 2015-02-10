@@ -9,9 +9,8 @@ import java.util.Calendar;
  */
 public class Hospede {
  
-        private String nome, cpf, endereco;
-        private int numeroDoCartao;
-        private  Calendar dataDeNacimento;
+        private String nome, cpf, endereco,numeroDoCartao;
+        private Calendar dataDeNacimento;
  
         /**
          * 
@@ -26,14 +25,14 @@ public class Hospede {
          * @param NumeroDocartao
          * 			(String) A representacao do numero do cartao do hospede.
          */
-        public Hospede(String nome, String cpf,Calendar dataDeNacimento, String endereco, int NumeroDocartao) {
+        public Hospede(String nome, String cpf,Calendar dataDeNacimento, String endereco, String NumeroDoCartao) {
                 super();
                 this.nome = nome;
                 this.cpf = cpf;
                 this.dataDeNacimento = dataDeNacimento;
                 this.endereco = endereco;
                 this.dataDeNacimento = dataDeNacimento;
-                this.numeroDoCartao = numeroDoCartao;
+                this.numeroDoCartao = NumeroDoCartao;
         }
  
         /**
@@ -41,8 +40,8 @@ public class Hospede {
          * @return
          * 		O numero do cartão do hospede.
          */
-        public int getNumeroDoCartao() {
-			return numeroDoCartao;
+        public String getNumeroDoCartao() {
+        	return numeroDoCartao;
 		}
         
         /**
