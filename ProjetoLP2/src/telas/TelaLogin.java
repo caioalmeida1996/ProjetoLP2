@@ -10,9 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
 public class TelaLogin extends JFrame {
@@ -22,6 +23,8 @@ public class TelaLogin extends JFrame {
 	private JPasswordField pfSenha;
 	@SuppressWarnings("unused")
 	private boolean acessoPermitido = false;
+	protected KeyEvent evt;
+	JButton btAcessar = new JButton("Acessar");
 
 	/**
 	 * Launch the application.
@@ -66,10 +69,38 @@ public class TelaLogin extends JFrame {
 		tfLogin.setColumns(10);
 
 		pfSenha = new JPasswordField();
+		pfSenha.addKeyListener(new KeyAdapter() {
+			
+		    public void keyPressed(java.awt.event.KeyEvent evt) {  
+		        int tecla=evt.getKeyCode();          
+		        if (tecla==KeyEvent.VK_ENTER) {  
+		        	if (tfLogin.getText().equals("admin")
+							&& pfSenha.getText().equals("admin")) {
+						// JOptionPane.showMessageDialog(null, "Acesso Permitido");
+						acessoPermitido = true;
+						TelaPrincipal TP = new TelaPrincipal();
+						TP.show();
+						hide();
+
+					} else
+						JOptionPane.showMessageDialog(null, "Acesso Negado");
+					{
+						tfLogin.setText("");
+						pfSenha.setText("");
+					}
+		        }                  
+		    }  });
+		
 		pfSenha.setBounds(193, 93, 114, 19);
 		contentPane.add(pfSenha);
 
-		JButton btAcessar = new JButton("Acessar");
+		
+		btAcessar.setBounds(154, 180, 117, 25);
+		contentPane.add(btAcessar);
+		btAcessar.addKeyListener(new KeyAdapter() {
+		}
+		);
+		
 		btAcessar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -89,8 +120,11 @@ public class TelaLogin extends JFrame {
 				}
 			}
 		});
-		btAcessar.setBounds(154, 180, 117, 25);
-		contentPane.add(btAcessar);
 	}
-
+	
+	public void keyPressed(KeyEvent e) {
+		if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+			JOptionPane.showMessageDialog(null, "ENTER");
+		}
+	}
 }
