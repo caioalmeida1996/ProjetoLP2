@@ -22,8 +22,6 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import javax.swing.text.MaskFormatter;
 
-import quartos.SuitePresidencial;
-
 public class TelaCheckIn extends JFrame {
 	/**
 	 * 
@@ -34,12 +32,15 @@ public class TelaCheckIn extends JFrame {
 	private JTextField tfDataDeNascimento;
 	private JTextField tfEndereco;
 	private JTextField tfCartaoDeCredito;
+	private JTextField tfDataDeEntradaDia;
+	private JTextField tfDataDeEntradaMes;
+	private JTextField tfDataDeEntradaAno;
+	private JTextField tfDataDeSaidaDia;
+	private JTextField tfDataDeSaidaMes;
+	private JTextField tfDataDeSaidaAno;
 	private MaskFormatter format_1; // Formato do CPf
 	private MaskFormatter format_2; // Formato da Data de Nascimento
 	private MaskFormatter format_3; // Formato do Cartao de Credito
-	private JTextField tfDataEntrada;
-	private JTextField tfDataSaida;
-	private JComboBox<String> comboBoxTipoDeQuarto = new JComboBox<String>();
 
 	/**
 	 * Launch the application.
@@ -92,7 +93,7 @@ public class TelaCheckIn extends JFrame {
 		tfCPF.setColumns(10);
 
 		tfDataDeNascimento = new JTextField();
-		tfDataDeNascimento.setBounds(119, 105, 129, 20);
+		tfDataDeNascimento.setBounds(79, 105, 169, 20);
 		tfDataDeNascimento.setColumns(10);
 
 		JLabel tfDataDeNascimento_1 = new JLabel("tfDataDeNascimento:");
@@ -100,19 +101,19 @@ public class TelaCheckIn extends JFrame {
 		tfDataDeNascimento_1.setBounds(245, 409, 70, 15);
 		getContentPane().add(tfDataDeNascimento_1);
 
-		// try {
-		// format_2 = new MaskFormatter("## ## #####");
-		// format_2.setPlaceholderCharacter('_');
-		// } catch (ParseException e2) {
-		// e2.printStackTrace();
-		// }
+		try {
+			format_2 = new MaskFormatter("##/##/#####");
+			format_2.setPlaceholderCharacter('_');
+		} catch (ParseException e2) {
+			e2.printStackTrace();
+		}
 
-		// tfDataDeNascimento = new JFormattedTextField(format_2);
-		// tfDataDeNascimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		// tfDataDeNascimento.setText("( ) - ");
-		// tfDataDeNascimento.setBounds(104, 105, 83, 23);
-		// getContentPane().add(tfDataDeNascimento);
-		// tfDataDeNascimento.setColumns(10);
+		tfDataDeNascimento = new JFormattedTextField(format_2);
+		tfDataDeNascimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfDataDeNascimento.setText("( ) - ");
+		tfDataDeNascimento.setBounds(104, 105, 83, 23);
+		getContentPane().add(tfDataDeNascimento);
+		tfDataDeNascimento.setColumns(10);
 
 		JButton btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setBounds(147, 534, 71, 23);
@@ -166,6 +167,7 @@ public class TelaCheckIn extends JFrame {
 		JLabel label = new JLabel("N\u00BA de pessoas");
 		label.setBounds(20, 223, 88, 14);
 
+		JComboBox<String> comboBoxTipoDeQuarto = new JComboBox<String>();
 		comboBoxTipoDeQuarto.setBounds(68, 192, 105, 20);
 		comboBoxTipoDeQuarto.addItem("Presidencial");
 		comboBoxTipoDeQuarto.addItem("Luxo Simples");
@@ -178,6 +180,27 @@ public class TelaCheckIn extends JFrame {
 		JLabel label_1 = new JLabel("Data de Entrada");
 		label_1.setBounds(247, 192, 94, 14);
 
+		JLabel label_2 = new JLabel("Dia");
+		label_2.setBounds(247, 220, 22, 14);
+
+		tfDataDeEntradaDia = new JTextField();
+		tfDataDeEntradaDia.setBounds(279, 217, 86, 20);
+		tfDataDeEntradaDia.setColumns(10);
+
+		JLabel label_3 = new JLabel("Mes");
+		label_3.setBounds(247, 248, 29, 14);
+
+		tfDataDeEntradaMes = new JTextField();
+		tfDataDeEntradaMes.setBounds(279, 245, 86, 20);
+		tfDataDeEntradaMes.setColumns(10);
+
+		JLabel label_4 = new JLabel("Ano");
+		label_4.setBounds(247, 273, 29, 14);
+
+		tfDataDeEntradaAno = new JTextField();
+		tfDataDeEntradaAno.setBounds(279, 273, 86, 20);
+		tfDataDeEntradaAno.setColumns(10);
+
 		JLabel label_5 = new JLabel("Data de Saida");
 		label_5.setBounds(393, 192, 86, 14);
 		JDateChooser entradaJdate = new JDateChooser();
@@ -186,11 +209,44 @@ public class TelaCheckIn extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 					}
 				});
+
+		JLabel label_6 = new JLabel("Dia");
+		label_6.setBounds(393, 217, 29, 14);
+
+		tfDataDeSaidaDia = new JTextField();
+		tfDataDeSaidaDia.setBounds(419, 217, 86, 20);
+		tfDataDeSaidaDia.setColumns(10);
+
+		JLabel label_7 = new JLabel("Mes");
+		label_7.setBounds(393, 242, 29, 14);
+
+		tfDataDeSaidaMes = new JTextField();
+		tfDataDeSaidaMes.setBounds(419, 245, 86, 20);
+		tfDataDeSaidaMes.setColumns(10);
+
+		JLabel label_8 = new JLabel("Ano");
+		label_8.setBounds(393, 267, 29, 14);
+
+		tfDataDeSaidaAno = new JTextField();
+		tfDataDeSaidaAno.setBounds(419, 270, 86, 20);
+		tfDataDeSaidaAno.setColumns(10);
 		getContentPane().setLayout(null);
 		getContentPane().add(label);
 		getContentPane().add(comboBoxTipoDeQuarto);
 		getContentPane().add(label_1);
+		getContentPane().add(label_2);
+		getContentPane().add(tfDataDeEntradaDia);
+		getContentPane().add(label_3);
+		getContentPane().add(tfDataDeEntradaMes);
+		getContentPane().add(label_4);
+		getContentPane().add(tfDataDeEntradaAno);
 		getContentPane().add(label_5);
+		getContentPane().add(label_6);
+		getContentPane().add(tfDataDeSaidaDia);
+		getContentPane().add(label_7);
+		getContentPane().add(tfDataDeSaidaMes);
+		getContentPane().add(label_8);
+		getContentPane().add(tfDataDeSaidaAno);
 		getContentPane().add(lblQuarto);
 		getContentPane().add(lblDataDeNascimento);
 		getContentPane().add(lblCpf);
@@ -215,54 +271,25 @@ public class TelaCheckIn extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				boolean verificador = true;
 
-				// data de nascimento do hospede
-				SimpleDateFormat formatoHospede = new SimpleDateFormat(
-						"dd/MM/yyyy");
-				Calendar calHospede = Calendar.getInstance();
-
-				// data de entrada do hopede
-				SimpleDateFormat formatoEntrada = new SimpleDateFormat(
-						"dd/MM/yyyy");
-				Calendar calEntrada = Calendar.getInstance();
-
-				// data saida do hospede
-				SimpleDateFormat formatoSaida = new SimpleDateFormat(
-						"dd/MM/yyyy");
-				Calendar calSaida = Calendar.getInstance();
-
+				SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+				Calendar cal = Calendar.getInstance();
 				try {
-					calHospede.setTime(formatoHospede.parse(tfDataDeNascimento
-							.getText()));
-					calEntrada.setTime(formatoEntrada.parse(tfDataEntrada
-							.getText()));
-					calSaida.setTime(formatoSaida.parse(tfDataSaida.getText()));
-
+					cal.setTime(formato.parse(tfDataDeNascimento.getText()));
 				} catch (ParseException e) {
 					JOptionPane.showMessageDialog(null,
 							"Formato da data tem que ser dd/MM/yyyy");
 					e.printStackTrace();
+					verificador = false;
 				}
-				Hospede hospede = new Hospede(tfNome.getText(),
-						tfCPF.getText(), calHospede, tfEndereco.getText(),
-						tfCartaoDeCredito.getText());
-				// JOptionPane.showMessageDialog(null,
-				// "Cadastro feito com sucesso!");
-				String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem()
-						.toString();
-				if (itemSelecionado.equals("Presidencial")) {
-					try {
-						SuitePresidencial suiteP = new SuitePresidencial(
-								calEntrada, calSaida, hospede.getNome());
-					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, e.getMessage());
-						// e.printStackTrace();
-						System.out
-								.println("qubrou na criaçao da suite Presidencial");
-					}
+				if (verificador == true) {
+					Hospede hospede = new Hospede(tfNome.getText(), tfCPF
+							.getText(), cal, tfEndereco.getText(),
+							tfCartaoDeCredito.getText());
+					JOptionPane.showMessageDialog(null,
+							"Cadastro feito com sucesso!");
 				}
-				
-			}
 
+			}
 		});
 		btnSalvar.setBounds(10, 332, 161, 50);
 		getContentPane().add(btnSalvar);
@@ -276,16 +303,6 @@ public class TelaCheckIn extends JFrame {
 		});
 		btnFechar.setBounds(377, 332, 169, 50);
 		getContentPane().add(btnFechar);
-
-		tfDataEntrada = new JTextField();
-		tfDataEntrada.setBounds(252, 221, 114, 19);
-		getContentPane().add(tfDataEntrada);
-		tfDataEntrada.setColumns(10);
-
-		tfDataSaida = new JTextField();
-		tfDataSaida.setBounds(393, 221, 114, 19);
-		getContentPane().add(tfDataSaida);
-		tfDataSaida.setColumns(10);
 		comboBoxNdePessoas.addItem("1");
 		comboBoxNdePessoas.addItem("2");
 		comboBoxNdePessoas.addItem("3");

@@ -25,8 +25,7 @@ public abstract class Quarto extends ServicoTrivial{
 	 * @param nomeDoHospede
 	 *            O nome do responsável pelo quanrto.
 	 */
-	public Quarto(Calendar dataInicial, Calendar dataFinal, String nomeDoHospede)throws Exception {
-		if(nomeDoHospede == "" || nomeDoHospede == null) throw new Exception("ERROR, o nome do hospede nao pode ser null ou vazio.");
+	public Quarto(Calendar dataInicial, Calendar dataFinal, String nomeDoHospede) {
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
 		this.nomeDoHospede = nomeDoHospede;
