@@ -42,12 +42,18 @@ public class Contrato {
         public void setHospede(Hospede hospede) {
                 this.hospede = hospede;
         }
+        
+        
         public void setDataInicial(Calendar dataInicial) {
                 this.dataInicial = dataInicial;
         }
+        
+        
         public void setDataFinal(Calendar dataFinal) {
                 this.dataFinal = dataFinal;
         }
+        
+        
         public void setServicos(ArrayList<Servico> servicos) {
                 this.servicos = servicos;
         }
@@ -57,15 +63,21 @@ public class Contrato {
         public Hospede getHospede() {
                 return hospede;
         }
+        
+        
         public Calendar getDataInicial() {
                 return dataInicial;
         }
+        
+        
         public Calendar getDataFinal() {
                 return dataFinal;
         }
+        
         public ArrayList<Servico> getServicos() {
                 return servicos;
         }
+        
        
         /**
          * Metodo que adiciona um novo servico ao conjunto de servicos
