@@ -67,8 +67,8 @@ public class TelaPrincipal extends JFrame {
 		desktopPane.add(lblNewLabel);
 		lblNewLabel.setIcon(new ImageIcon("/home/alexandreg/Downloads/fachada-heritage-design-hotel.JPG"));
 		
-		JButton btnHospede = new JButton("Check In");
-		btnHospede.addActionListener(new ActionListener() {
+		JButton btnCheckIn = new JButton("Check In");
+		btnCheckIn.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				TelaCheckIn TH = new TelaCheckIn();
@@ -77,19 +77,19 @@ public class TelaPrincipal extends JFrame {
 				
 			}
 		});
-		btnHospede.setBounds(10, 51, 132, 35);
-		contentPane.add(btnHospede);
+		btnCheckIn.setBounds(10, 51, 132, 35);
+		contentPane.add(btnCheckIn);
 		
-		JButton btnQuarto = new JButton("Quartos");
-		btnQuarto.addActionListener(new ActionListener() {
+		JButton btnHospedes = new JButton("Hospedes");
+		btnHospedes.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				TelaCadastraQuarto TQ = new TelaCadastraQuarto();
-				TQ.show();
+				TelaFichaHospedes TFH = new TelaFichaHospedes();
+				TFH.show();
 			}
 		});
-		btnQuarto.setBounds(436, 51, 132, 35);
-		contentPane.add(btnQuarto);
+		btnHospedes.setBounds(436, 51, 132, 35);
+		contentPane.add(btnHospedes);
 		
 		JButton btnServio = new JButton("Servi\u00E7os");
 		btnServio.addActionListener(new ActionListener() {
