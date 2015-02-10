@@ -103,6 +103,13 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(btnServio);
 		
 		JButton btnContrato = new JButton("Contratos");
+		btnContrato.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				TelaContrato TC = new TelaContrato();
+				TC.show();
+			}
+		});
 		btnContrato.setBounds(294, 51, 132, 35);
 		contentPane.add(btnContrato);
 		
@@ -112,6 +119,7 @@ public class TelaPrincipal extends JFrame {
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				hide();
 				System.exit(0);

@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.JComboBox;
 
@@ -53,6 +54,8 @@ public class TelaCheckIn extends JFrame {
 		tfNome.setBounds(79, 53, 169, 20);
 		tfNome.setColumns(10);
 
+		// Criando jCalendar
+		
 		JLabel lblCpf = new JLabel("CPF:");
 		lblCpf.setBounds(10, 79, 42, 14);
 
