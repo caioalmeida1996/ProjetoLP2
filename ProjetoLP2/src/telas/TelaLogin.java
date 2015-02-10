@@ -1,6 +1,5 @@
 package telas;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -15,11 +14,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class TelaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfLogin;
 	private JPasswordField pfSenha;
+	@SuppressWarnings("unused")
 	private boolean acessoPermitido = false;
 
 	/**
@@ -59,6 +60,7 @@ public class TelaLogin extends JFrame {
 		contentPane.add(lblNewLabel_1);
 
 		tfLogin = new JTextField();
+		tfLogin.setText("admin");
 		tfLogin.setBounds(193, 53, 114, 19);
 		contentPane.add(tfLogin);
 		tfLogin.setColumns(10);
@@ -69,6 +71,7 @@ public class TelaLogin extends JFrame {
 
 		JButton btAcessar = new JButton("Acessar");
 		btAcessar.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				if (tfLogin.getText().equals("admin")
 						&& pfSenha.getText().equals("admin")) {
@@ -76,6 +79,7 @@ public class TelaLogin extends JFrame {
 					acessoPermitido = true;
 					TelaPrincipal TP = new TelaPrincipal();
 					TP.show();
+					hide();
 
 				} else
 					JOptionPane.showMessageDialog(null, "Acesso Negado");

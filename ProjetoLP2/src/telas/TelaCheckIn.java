@@ -2,6 +2,7 @@ package telas;
 
 import hospede.Hospede;
 
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -9,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
@@ -18,6 +20,7 @@ import java.util.Calendar;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.JComboBox;
+import javax.swing.text.MaskFormatter;
 
 public class TelaCheckIn extends JFrame {
 	/**
@@ -35,6 +38,9 @@ public class TelaCheckIn extends JFrame {
 	private JTextField tfDataDeSaidaDia;
 	private JTextField tfDataDeSaidaMes;
 	private JTextField tfDataDeSaidaAno;
+	private MaskFormatter format_1; // Formato do CPf
+	private MaskFormatter format_2; // Formato da Data de Nascimento
+	private MaskFormatter format_3; // Formato do Cartao de Credito
 
 	/**
 	 * Launch the application.
@@ -67,8 +73,46 @@ public class TelaCheckIn extends JFrame {
 		tfCPF.setBounds(79, 79, 169, 20);
 		tfCPF.setColumns(10);
 
+		JLabel tfCPF_1 = new JLabel("tfCPF:");
+		tfCPF_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		tfCPF_1.setBounds(245, 409, 70, 15);
+		getContentPane().add(tfCPF_1);
+
+		try {
+			format_1 = new MaskFormatter("###.###.###-##");
+			format_1.setPlaceholderCharacter('_');
+		} catch (ParseException e2) {
+			e2.printStackTrace();
+		}
+
+		tfCPF = new JFormattedTextField(format_1);
+		tfCPF.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfCPF.setText("( ) - ");
+		tfCPF.setBounds(80, 76, 169, 23);
+		getContentPane().add(tfCPF);
+		tfCPF.setColumns(10);
+
 		tfDataDeNascimento = new JTextField();
 		tfDataDeNascimento.setBounds(79, 105, 169, 20);
+		tfDataDeNascimento.setColumns(10);
+
+		JLabel tfDataDeNascimento_1 = new JLabel("tfDataDeNascimento:");
+		tfDataDeNascimento_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		tfDataDeNascimento_1.setBounds(245, 409, 70, 15);
+		getContentPane().add(tfDataDeNascimento_1);
+
+		try {
+			format_2 = new MaskFormatter("##/##/#####");
+			format_2.setPlaceholderCharacter('_');
+		} catch (ParseException e2) {
+			e2.printStackTrace();
+		}
+
+		tfDataDeNascimento = new JFormattedTextField(format_2);
+		tfDataDeNascimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfDataDeNascimento.setText("( ) - ");
+		tfDataDeNascimento.setBounds(104, 105, 83, 23);
+		getContentPane().add(tfDataDeNascimento);
 		tfDataDeNascimento.setColumns(10);
 
 		JButton btnFinalizar = new JButton("Finalizar");
@@ -93,6 +137,25 @@ public class TelaCheckIn extends JFrame {
 
 		tfCartaoDeCredito = new JTextField();
 		tfCartaoDeCredito.setBounds(407, 79, 86, 20);
+		tfCartaoDeCredito.setColumns(10);
+
+		JLabel tfCartaoDeCredito_1 = new JLabel("tfCartaoDeCredito:");
+		tfCartaoDeCredito_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		tfCartaoDeCredito_1.setBounds(245, 409, 70, 15);
+		getContentPane().add(tfCartaoDeCredito_1);
+
+		try {
+			format_3 = new MaskFormatter("###.###.####");
+			format_3.setPlaceholderCharacter('_');
+		} catch (ParseException e2) {
+			e2.printStackTrace();
+		}
+
+		tfCartaoDeCredito = new JFormattedTextField(format_3);
+		tfCartaoDeCredito.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfCartaoDeCredito.setText("( ) - ");
+		tfCartaoDeCredito.setBounds(419, 74, 113, 28);
+		getContentPane().add(tfCartaoDeCredito);
 		tfCartaoDeCredito.setColumns(10);
 
 		JLabel lblQuarto = new JLabel("Quarto:");
