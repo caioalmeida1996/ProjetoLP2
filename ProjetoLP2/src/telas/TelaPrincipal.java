@@ -71,7 +71,7 @@ public class TelaPrincipal extends JFrame {
 		btnHospede.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
-				TelaCadastraHospede TH = new TelaCadastraHospede();
+				TelaCheckIn TH = new TelaCheckIn();
 				TH.show();
 				
 				

@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
 import javax.swing.JComboBox;
 
-public class TelaCadastraHospede extends JFrame {
+public class TelaCheckIn extends JFrame {
 	/**
 	 * 
 	 */
@@ -33,7 +33,7 @@ public class TelaCadastraHospede extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaCadastraHospede() {
+	public TelaCheckIn() {
 		setTitle("Check In");
 		
 		setBounds(300, 120, 641, 510);
