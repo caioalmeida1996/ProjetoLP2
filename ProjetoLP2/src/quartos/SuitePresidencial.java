@@ -50,7 +50,9 @@ public class SuitePresidencial extends Quarto {
 	public double getValorDiaria() {
 		return valorDiaria;
 	}
-
+	/**
+	 * retorna o tipo de quarto
+	 */
 	@Override
 	public String getTipoDeQuarto() {
 		// TODO Auto-generated method stub

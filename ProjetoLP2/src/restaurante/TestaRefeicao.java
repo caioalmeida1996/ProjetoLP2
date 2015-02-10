@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TestaRefeicao {
 
 	@Test
-	public void testaCustos() {
+	public void testaCustos() throws Exception {
 		Refeicao refeicao = new Refeicao(30);
 		assertTrue(30 == refeicao.custo());
 		
@@ -21,7 +21,7 @@ public class TestaRefeicao {
 	}
 
 	@Test
-	public void testaDatas(){
+	public void testaDatas() throws Exception{
 		Refeicao refeicao = new Refeicao(30);
 		
 		Calendar dataAtual = Calendar.getInstance();

@@ -16,12 +16,12 @@ public class CarroExecutivo extends AluguelCarro {
 	 * @param placa
 	 *            , A Placa do Carro alugado.
 	 * @param temTanqueCheio
-	 *            , Se vira com tanque cheio ou não.
+	 *            , Se vira com tanque cheio ou nï¿½o.
 	 * @param temSeguro
-	 *            , Se tera seguro ou não.
+	 *            , Se tera seguro ou nï¿½o.
+	 * @throws Exception 
 	 */
-	public CarroExecutivo(String placa, boolean temTanqueCheio,
-			boolean temSeguro) {
+	public CarroExecutivo(String placa, boolean temTanqueCheio, boolean temSeguro) throws Exception {
 		super(placa, temTanqueCheio, temSeguro);
 	}
 
