@@ -36,24 +36,19 @@ public abstract class Quarto extends ServicoTrivial{
 	/**
 	 * Retorna a data inicial do aluguel do quarto
 	 * 
-	 * @return retorna uma String com a o dia, o mês e o ano
+	 * @return retorna um obj calendar representando a data.
 	 */
-	public String getDataInicial() {
-		return ("Data Inicial:") + " "
-				+ (dataInicial.get(Calendar.DAY_OF_MONTH)) + "/"
-				+ (dataInicial.get(Calendar.MONTH)) + "/"
-				+ (+dataInicial.get(Calendar.YEAR));
+	public Calendar getDataInicial() {
+		return dataInicial;
 	}
 
 	/**
 	 * Retorna a data final do aluguel do quarto
 	 * 
-	 * @return retorna uma String com a o dia, o mês e o ano
+	 * @return retorna um obj calendar representando a data.
 	 */
-	public String getDataFinal() {
-		return ("Data Final:") + " " + (dataFinal.get(Calendar.DAY_OF_MONTH))
-				+ "/" + (dataFinal.get(Calendar.MONTH)) + "/"
-				+ (+dataFinal.get(Calendar.YEAR));
+	public Calendar getDataFinal() {
+		return dataFinal;
 	}
 
 	/**
