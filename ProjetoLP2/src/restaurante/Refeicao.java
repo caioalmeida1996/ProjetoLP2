@@ -12,6 +12,11 @@ public class Refeicao extends Servico{
 
 	private double valorRefeicao;
 	
+	/**
+	 * 
+	 * @param valorRefeicao
+	 * 			O valor da refeicao 
+	 */
 	public Refeicao(double valorRefeicao) {
 		super();
 		this.valorRefeicao = valorRefeicao;
