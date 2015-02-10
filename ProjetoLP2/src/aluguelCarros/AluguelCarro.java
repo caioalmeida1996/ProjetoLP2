@@ -41,8 +41,9 @@ public abstract class AluguelCarro extends ServicoSuplementar {
 	 *            Um valor booleano que atesta se o carro foi alugado com seguro
 	 *            incluso
 	 */
-	public AluguelCarro(String placa, boolean temTanqueCheio, boolean temSeguro) {
+	public AluguelCarro(String placa, boolean temTanqueCheio, boolean temSeguro)throws Exception {
 		super();
+		if(placa == "" || placa == null ) throw new Exception("ERRO, o nome da placa não pode ser vaiza ou null.");
 		this.temTanqueCheio = temTanqueCheio;
 		this.temSeguro = temSeguro;
 	}// fim do construtor

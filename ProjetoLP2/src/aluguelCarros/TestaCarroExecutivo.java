@@ -11,7 +11,7 @@ public class TestaCarroExecutivo {
 	private String placa = "HVH-1404";
 	
 	@Test
-	public void testaValoresAditivos() {
+	public void testaValoresAditivos() throws Exception {
 		
 		assertTrue(AluguelCarro.getValorTanqueCheio() == 150);
 		assertTrue(AluguelCarro.getValorSeguro() == 100);
@@ -39,7 +39,7 @@ public class TestaCarroExecutivo {
 	}// fim do metodo testaValoresAditivos()
 	
 	@Test
-	public void testaCustosDeAluguelCaso1(){
+	public void testaCustosDeAluguelCaso1() throws Exception{
 		// Criando um carro executivo sem valores aditivos
 		CarroExecutivo carro1 = new CarroExecutivo(placa, false, false);
 		
@@ -65,7 +65,7 @@ public class TestaCarroExecutivo {
 	}// fim de testaCustosDeAluguelCaso1()
 	
 	@Test
-	public void testaCustosDeAluguelCaso2(){
+	public void testaCustosDeAluguelCaso2() throws Exception{
 		// Criando um carro executivo sem valores aditivos
 		CarroExecutivo carro1 = new CarroExecutivo(placa, false, true);
 		
@@ -91,7 +91,7 @@ public class TestaCarroExecutivo {
 	}// fim de testaCustosDeAluguelCaso2()
 	
 	@Test
-	public void testaCustosDeAluguelCaso3(){
+	public void testaCustosDeAluguelCaso3() throws Exception{
 		// Criando um carro executivo sem valores aditivos
 		CarroExecutivo carro1 = new CarroExecutivo(placa, true, false);
 		
@@ -117,7 +117,7 @@ public class TestaCarroExecutivo {
 	}// fim de testaCustosDeAluguelCaso3()
 	
 	@Test
-	public void testaCustosDeAluguelCaso4(){
+	public void testaCustosDeAluguelCaso4() throws Exception{
 		// Criando um carro executivo sem valores aditivos
 		CarroExecutivo carro1 = new CarroExecutivo(placa, true, true);
 		

@@ -17,8 +17,9 @@ public class Refeicao extends Servico{
 	 * @param valorRefeicao
 	 * 			O valor da refeicao 
 	 */
-	public Refeicao(double valorRefeicao) {
+	public Refeicao(double valorRefeicao) throws Exception{
 		super();
+		if(valorRefeicao <= 0) throw new Exception("ERRO, o valor tem que ser positivo.");
 		this.valorRefeicao = valorRefeicao;
 	}
 

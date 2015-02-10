@@ -11,7 +11,7 @@ public class TestaCarroLuxo {
 	private String placa = "HVH-1404";
 	
 	@Test
-	public void testaValoresAditivos() {
+	public void testaValoresAditivos() throws Exception {
 		assertTrue(AluguelCarro.getValorTanqueCheio() == 150);
 		assertTrue(AluguelCarro.getValorSeguro() == 100);
 		
@@ -38,7 +38,7 @@ public class TestaCarroLuxo {
 	}// fim do m�todo testaValoresAditivos()
 
 	@Test
-	public void testaCustosDeAluguelCaso1(){
+	public void testaCustosDeAluguelCaso1() throws Exception{
 		// Criando um carro de luxo sem valores aditivos
 		CarroLuxo carro1 = new CarroLuxo(placa, false, false);
 		
@@ -63,7 +63,7 @@ public class TestaCarroLuxo {
 	}// fim de testaCustosDeAluguelCaso1()
 	
 	@Test
-	public void testaCustosDeAluguelCaso2(){
+	public void testaCustosDeAluguelCaso2() throws Exception{
 		// Criando um carro de luxo com seguro incluso
 		CarroLuxo carro1 = new CarroLuxo(placa, false, true);
 		
@@ -89,7 +89,7 @@ public class TestaCarroLuxo {
 	}// fim de testaCustosDeAluguelCaso2()
 	
 	@Test
-	public void testaCustosDeAluguelCaso3(){
+	public void testaCustosDeAluguelCaso3() throws Exception{
 		// Criando um carro de luxo com tanque cheio
 		CarroLuxo carro1 = new CarroLuxo(placa, true, false);
 		
@@ -115,7 +115,7 @@ public class TestaCarroLuxo {
 	}// fim de testaCustosDeAluguelCaso3()
 
 	@Test
-	public void testaCustosDeAluguelCaso4(){
+	public void testaCustosDeAluguelCaso4() throws Exception{
 		// Criando um carro de luxo com tanque cheio e seguro inclusos
 		CarroLuxo carro1 = new CarroLuxo(placa, true, true);
 		
