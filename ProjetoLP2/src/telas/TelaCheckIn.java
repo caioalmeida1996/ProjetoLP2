@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.JComboBox;
@@ -55,7 +56,7 @@ public class TelaCheckIn extends JFrame {
 		tfNome.setColumns(10);
 
 		// Criando jCalendar
-		
+
 		JLabel lblCpf = new JLabel("CPF:");
 		lblCpf.setBounds(10, 79, 42, 14);
 
@@ -139,6 +140,12 @@ public class TelaCheckIn extends JFrame {
 
 		JLabel label_5 = new JLabel("Data de Saida");
 		label_5.setBounds(393, 192, 86, 14);
+		JDateChooser entradaJdate = new JDateChooser();
+		entradaJdate.getCalendarButton().addActionListener(
+				new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+					}
+				});
 
 		JLabel label_6 = new JLabel("Dia");
 		label_6.setBounds(393, 217, 29, 14);
@@ -218,8 +225,7 @@ public class TelaCheckIn extends JFrame {
 					JOptionPane.showMessageDialog(null,
 							"Cadastro feito com sucesso!");
 				}
-				
-				
+
 			}
 		});
 		btnSalvar.setBounds(10, 332, 161, 50);
@@ -227,8 +233,8 @@ public class TelaCheckIn extends JFrame {
 
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-
 				hide();
 			}
 		});

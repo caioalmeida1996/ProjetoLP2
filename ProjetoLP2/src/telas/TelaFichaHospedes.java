@@ -6,6 +6,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JTextPane;
 
 public class TelaFichaHospedes extends JFrame {
 
@@ -13,8 +15,9 @@ public class TelaFichaHospedes extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField tfProcurarHospede;
 
 	/**
 	 * Launch the application.
@@ -37,13 +40,17 @@ public class TelaFichaHospedes extends JFrame {
 		lblHospede.setBounds(10, 35, 86, 14);
 		contentPane.add(lblHospede);
 		
-		textField = new JTextField();
-		textField.setBounds(114, 33, 361, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		tfProcurarHospede = new JTextField();
+		tfProcurarHospede.setBounds(114, 33, 361, 20);
+		contentPane.add(tfProcurarHospede);
+		tfProcurarHospede.setColumns(10);
 		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.setBounds(487, 31, 117, 23);
 		contentPane.add(btnProcurar);
+		
+		JTextPane tpMostrarHospedes = new JTextPane();
+		tpMostrarHospedes.setBounds(20, 61, 697, 388);
+		contentPane.add(tpMostrarHospedes);
 	}
 }
