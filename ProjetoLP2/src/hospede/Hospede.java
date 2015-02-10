@@ -78,5 +78,17 @@ public class Hospede {
         public String getEndereco() {
                 return endereco;
         }
+        
+        @Override
+        public boolean equals(Object obj) {
+        	if (!(obj instanceof Hospede)){
+        		return false;
+        	}
+        	Hospede outroHospede = (Hospede) obj;
+        	
+        return outroHospede.getNome().equals(this.getNome()) &&
+        		outroHospede.getCpf().equals(this.getCpf()) &&
+        		outroHospede.getEndereco().equals(this.getEndereco());
+        }
        
 }// fim da classe
