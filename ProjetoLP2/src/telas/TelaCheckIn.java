@@ -257,11 +257,12 @@ public class TelaCheckIn extends JFrame {
 					}
 					Hospede hospede = new Hospede(tfNome.getText(),tfCPF.getText(), calHospede, tfEndereco.getText(), tfCartaoDeCredito.getText());
 					 
-					System.out.println("criou um objeto");
 					String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem().toString();
 					criaQuartos(calEntrada, calSaida, hospede, itemSelecionado);
 					servicos.add(quarto);
 					contrato = new Contrato(hospede, calEntrada, calSaida, servicos);
+					JOptionPane.showMessageDialog(null,"Cadastro feito");
+					hide();
 					break;
 				}
 			}
