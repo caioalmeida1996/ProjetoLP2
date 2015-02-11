@@ -15,17 +15,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.toedter.calendar.JDateChooser;
+
+import contrato.Contrato;
 
 import javax.swing.JComboBox;
 import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 import javax.swing.text.MaskFormatter;
 
+import quartos.Quarto;
 import quartos.QuartoExecutivo;
 import quartos.QuartoLuxo;
 import quartos.SuitePresidencial;
+import servicos.Servico;
 
 public class TelaCheckIn extends JFrame {
 	/**
@@ -44,6 +49,9 @@ public class TelaCheckIn extends JFrame {
 	private JTextField tfDataSaida;
 	private JComboBox<String> comboBoxTipoDeQuarto = new JComboBox<String>();
 	private JRadioButton RadioButtonCamaExtra = new JRadioButton("Cama extra");
+	private static ArrayList<Servico> servicos = new ArrayList<Servico>(); 
+	private Quarto quarto;
+	private Contrato contrato;
 	
 
 	/**
@@ -235,24 +243,20 @@ public class TelaCheckIn extends JFrame {
 				Calendar calSaida = Calendar.getInstance();
 
 				try {
-					calHospede.setTime(formatoHospede.parse(tfDataDeNascimento
-							.getText()));
-					calEntrada.setTime(formatoEntrada.parse(tfDataEntrada
-							.getText()));
+					calHospede.setTime(formatoHospede.parse(tfDataDeNascimento.getText()));
+					calEntrada.setTime(formatoEntrada.parse(tfDataEntrada.getText()));
 					calSaida.setTime(formatoSaida.parse(tfDataSaida.getText()));
 
 				} catch (ParseException e) {
-					JOptionPane.showMessageDialog(null,
-							"Formato da data tem que ser dd/MM/yyyy");
+					JOptionPane.showMessageDialog(null,"Formato da data tem que ser dd/MM/yyyy");
 					e.printStackTrace();
 				}
-				Hospede hospede = new Hospede(tfNome.getText(),
-						tfCPF.getText(), calHospede, tfEndereco.getText(),
-						tfCartaoDeCredito.getText());
+				Hospede hospede = new Hospede(tfNome.getText(),tfCPF.getText(), calHospede, tfEndereco.getText(), tfCartaoDeCredito.getText());
 				 
-				String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem()
-						.toString();
+				String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem().toString();
 				criaQuartos(calEntrada, calSaida, hospede, itemSelecionado);
+				servicos.add(quarto);
+				contrato = new Contrato(hospede, calEntrada, calSaida, servicos);
 				
 			}
 
@@ -289,7 +293,7 @@ public class TelaCheckIn extends JFrame {
 		switch (itemSelecionado) {
 		case "Presidencial":
 			try {
-				SuitePresidencial suiteP = new SuitePresidencial(calEntrada, calSaida, hospede.getNome());
+				quarto = new SuitePresidencial(calEntrada, calSaida, hospede.getNome());
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
@@ -297,9 +301,7 @@ public class TelaCheckIn extends JFrame {
 			
 		case "Executivo Simples":
 			try {
-				QuartoExecutivo quartoExecutivo = new QuartoExecutivo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
-				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
-				System.out.println("criou um quarto2");
+				quarto = new QuartoExecutivo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());				
 			} catch (Exception e){
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
@@ -308,9 +310,7 @@ public class TelaCheckIn extends JFrame {
 		
 		case "Executivo Duplo":
 			try {
-				QuartoExecutivo quartoExecutivo = new QuartoExecutivo("duplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
-				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
-				System.out.println("criou um quarto3");
+				quarto = new QuartoExecutivo("duplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
 			} catch (Exception e){
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
@@ -318,9 +318,7 @@ public class TelaCheckIn extends JFrame {
 		
 		case "Executivo Triplo":
 			try {
-				QuartoExecutivo quartoExecutivo = new QuartoExecutivo("triplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
-				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
-				System.out.println("criou um quarto");
+				quarto = new QuartoExecutivo("triplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
 			} catch (Exception e){
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
@@ -328,9 +326,7 @@ public class TelaCheckIn extends JFrame {
 		
 		case "Luxo Simples":
 			try {
-				QuartoLuxo quartoLuxo = new QuartoLuxo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
-				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
-				System.out.println("criou um quarto");
+				quarto = new QuartoLuxo("simples", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
 			} catch (Exception e){
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
@@ -338,9 +334,7 @@ public class TelaCheckIn extends JFrame {
 		
 		case "Luxo Duplo":
 			try {
-				QuartoLuxo quartoLuxo = new QuartoLuxo("duplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
-				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
-				System.out.println("criou um quarto");
+				quarto = new QuartoLuxo("duplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
 			} catch (Exception e){
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
@@ -348,9 +342,7 @@ public class TelaCheckIn extends JFrame {
 		
 		case "Luxo Triplo":
 			try {
-				QuartoLuxo quartoLuxo = new QuartoLuxo("triplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
-				JOptionPane.showMessageDialog(null,"Cadastro feito com sucesso!");
-				System.out.println("criou um quarto");
+				quarto = new QuartoLuxo("triplo", calEntrada, calSaida, hospede.getNome(), RadioButtonCamaExtra.isSelected());
 			} catch (Exception e){
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
