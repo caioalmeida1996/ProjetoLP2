@@ -4,6 +4,8 @@ import hospede.Hospede;
 
 import java.util.ArrayList;
 
+import servicos.Servico;
+
 import contrato.Contrato;
 
 public class Hotel {
@@ -15,7 +17,7 @@ public class Hotel {
 		this.contratos = contratos;
 	}
 	
-	// Caso de uso 1
+	// ------- Caso de uso 1 --------
 	
 	/**
 	 * Classe que pesquisa um hospede do hotel a partir do nome
@@ -50,7 +52,64 @@ public class Hotel {
 		return false;
 	}
 	
-	//
+	// ----------- Caso de Uso 2 -------------
+	
+	private int getIndiceHospede(String nomeHospede){
+		for (int i = 0; i < contratos.size(); i++) {
+			if (contratos.get(i).getHospede().getNome().equals(nomeHospede)){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public boolean pesquisaServico(String nomeHospede, Servico servico){
+		int indice = getIndiceHospede(nomeHospede);
+		
+		if (indice == -1)
+			return false;
+		
+		return contratos.get(indice).getServicos().contains(servico);
+		
+	}
+	
+	public boolean removeServico(String nomeHospede, Servico servico){
+		int indice = getIndiceHospede(nomeHospede);
+		
+		if (indice == -1)
+			return false;
+		
+		for (int i = 0; i < contratos.get(indice).getServicos().size(); i++){
+			 
+			if (servico.getClass().equals(contratos.get(indice).getServicos().get(i))){
+				contratos.get(indice).getServicos().remove(contratos.get(indice).getServicos().get(i));
+				return true;
+			}
+			
+		}// fim do for
+		
+		return false;
+	}
+	
+	public ArrayList<Servico> getServicos(String nomeHospede){
+		int indice = getIndiceHospede(nomeHospede);
+		
+		if (indice == -1)
+			return null;
+		
+		return contratos.get(indice).getServicos();
+	}// fim do metodo
+	
+	public boolean adicionaServico(String nomeHospedeServico, Servico servico){
+		int indice = getIndiceHospede(nomeHospedeServico);
+		
+		if (indice == -1)
+			return false;
+		
+		return contratos.get(indice).getServicos().add(servico);
+	}
+	
+	// ----------- Caso de uso 3 -------------
 	
 	public ArrayList<Contrato> getContratos() {
 		return contratos;
