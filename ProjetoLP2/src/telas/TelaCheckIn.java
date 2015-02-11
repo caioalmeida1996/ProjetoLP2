@@ -53,6 +53,8 @@ public class TelaCheckIn extends JFrame {
 	private Quarto quarto;
 	private Contrato contrato;
 	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -226,38 +228,42 @@ public class TelaCheckIn extends JFrame {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				// data de nascimento do hospede
-				SimpleDateFormat formatoHospede = new SimpleDateFormat(
-						"dd/MM/yyyy");
-				Calendar calHospede = Calendar.getInstance();
-
-				// data de entrada do hopede
-				SimpleDateFormat formatoEntrada = new SimpleDateFormat(
-						"dd/MM/yyyy");
-				Calendar calEntrada = Calendar.getInstance();
-
-				// data saida do hospede
-				SimpleDateFormat formatoSaida = new SimpleDateFormat(
-						"dd/MM/yyyy");
-				Calendar calSaida = Calendar.getInstance();
-
-				try {
-					calHospede.setTime(formatoHospede.parse(tfDataDeNascimento.getText()));
-					calEntrada.setTime(formatoEntrada.parse(tfDataEntrada.getText()));
-					calSaida.setTime(formatoSaida.parse(tfDataSaida.getText()));
-
-				} catch (ParseException e) {
-					JOptionPane.showMessageDialog(null,"Formato da data tem que ser dd/MM/yyyy");
-					e.printStackTrace();
-				}
-				Hospede hospede = new Hospede(tfNome.getText(),tfCPF.getText(), calHospede, tfEndereco.getText(), tfCartaoDeCredito.getText());
-				 
-				String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem().toString();
-				criaQuartos(calEntrada, calSaida, hospede, itemSelecionado);
-				servicos.add(quarto);
-				contrato = new Contrato(hospede, calEntrada, calSaida, servicos);
 				
+				temErro();
+				while (temErro() == false){
+					// data de nascimento do hospede
+					SimpleDateFormat formatoHospede = new SimpleDateFormat(
+							"dd/MM/yyyy");
+					Calendar calHospede = Calendar.getInstance();
+
+					// data de entrada do hopede
+					SimpleDateFormat formatoEntrada = new SimpleDateFormat(
+							"dd/MM/yyyy");
+					Calendar calEntrada = Calendar.getInstance();
+
+					// data saida do hospede
+					SimpleDateFormat formatoSaida = new SimpleDateFormat(
+							"dd/MM/yyyy");
+					Calendar calSaida = Calendar.getInstance();
+
+					try {
+						calHospede.setTime(formatoHospede.parse(tfDataDeNascimento.getText()));
+						calEntrada.setTime(formatoEntrada.parse(tfDataEntrada.getText()));
+						calSaida.setTime(formatoSaida.parse(tfDataSaida.getText()));
+
+					} catch (ParseException e) {
+						JOptionPane.showMessageDialog(null,"Formato da data tem que ser dd/MM/yyyy");
+						e.printStackTrace();
+					}
+					Hospede hospede = new Hospede(tfNome.getText(),tfCPF.getText(), calHospede, tfEndereco.getText(), tfCartaoDeCredito.getText());
+					 
+					System.out.println("criou um objeto");
+					String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem().toString();
+					criaQuartos(calEntrada, calSaida, hospede, itemSelecionado);
+					servicos.add(quarto);
+					contrato = new Contrato(hospede, calEntrada, calSaida, servicos);
+					break;
+				}
 			}
 
 		});
@@ -348,5 +354,28 @@ public class TelaCheckIn extends JFrame {
 			}
 			break;
 		}
+	}
+	public boolean temErro(){
+		boolean teveErro = false;
+		if (tfDataDeNascimento.getText().length() != 10 || tfDataEntrada.getText().length() != 10 || tfDataSaida.getText().length() != 10) {
+			JOptionPane.showMessageDialog(null,"Formato da data tem que ser dd/MM/yyyy");
+			teveErro = true;
+		}
+		
+		if (tfCPF.getText().length() != 14){
+			JOptionPane.showMessageDialog(null,"CPF invalido");
+			teveErro = true;
+		}
+		
+		if (tfCartaoDeCredito.getText().length() != 12){
+			JOptionPane.showMessageDialog(null,"Cartao de credito invalido");
+			teveErro = true;
+		}
+		
+		if(tfEndereco.getText().equals("") || tfNome.getText().equals("")){
+			JOptionPane.showMessageDialog(null,"Nome e Endereco nao podem ser vazios");
+			teveErro = true;
+		}
+		return teveErro;
 	}
 }
