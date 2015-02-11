@@ -93,9 +93,9 @@ public class Hospede {
 
 		@Override
 		public String toString() {
-			return "Hospede [nome=" + nome + ", cpf=" + cpf + ", endereco="
-					+ endereco + ", numeroDoCartao=" + numeroDoCartao
-					+ ", dataDeNacimento=" + dataDeNacimento + "]";
+			return "Hospede [Nome: " + nome + "| CPF: " + cpf + "| Endereco: "
+					+ endereco + "| Cartão De Credito: " + numeroDoCartao
+					+ "| Data de Nacimento: " + dataDeNacimento + "]";
 		}
         
         
