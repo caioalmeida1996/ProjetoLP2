@@ -43,7 +43,7 @@ public class TelaPrincipal extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {	
-		hotel = new Hotel(null); /// criando o hotel;
+		hotel = new Hotel(contratos); /// criando o hotel;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

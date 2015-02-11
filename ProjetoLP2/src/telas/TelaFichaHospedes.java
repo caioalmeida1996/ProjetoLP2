@@ -67,6 +67,8 @@ public class TelaFichaHospedes extends JFrame {
 		TelaMostraHospede.setViewportView(list);
 		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
 		
+		
+		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -74,25 +76,32 @@ public class TelaFichaHospedes extends JFrame {
 				String busca = tfProcurarHospede.getText();
 				
 				if (busca.length() < 2) {
-					JOptionPane.showMessageDialog(null,
-							"Seja mais especifico em sua busca");
+					JOptionPane.showMessageDialog(null,"Seja mais especifico em sua busca");
+					JOptionPane.showMessageDialog(null,TelaPrincipal.hotel.getContratos().get(0).getHospede().getNome());
+					
 				} else {
-					try {
-						Long.parseLong(busca);
+					
+						
 						for (int i = 0; i < TelaPrincipal.hotel.getContratos().size(); i++) {
+							System.out.println(TelaPrincipal.hotel.getContratos().get(i).getHospede().getNome());
+							System.out.println(TelaPrincipal.hotel.getContratos().get(i).getHospede().getNome().contains(busca));
 							if (TelaPrincipal.hotel.getContratos().get(i).getHospede().getNome().contains(busca))
 								listModel.addElement(TelaPrincipal.hotel.getContratos().get(i).getHospede());
 						}
-					} catch (Exception e1) {
-						for (int i = 0; i < TelaPrincipal.hotel.getContratos().size(); i++) {
-							if (TelaPrincipal.hotel.getContratos().get(i).getHospede().getNome().contains(busca))
-								listModel.addElement(TelaPrincipal.hotel.getContratos().get(i).getHospede());
-						}
-					}
+					
 				}
 				
 			}
 		});
+		
+		list.setModel(listModel);
+		btnProcurar.setBounds(307, 128, 147, 41);
+		add(btnProcurar);
+
+		JLabel lblResultadosDaSua = new JLabel("Resultados da sua Busca:");
+		lblResultadosDaSua.setBounds(42, 169, 160, 30);
+		add(lblResultadosDaSua);
+		
 		btnProcurar.setBounds(487, 31, 117, 23);
 		contentPane.add(btnProcurar);
 		

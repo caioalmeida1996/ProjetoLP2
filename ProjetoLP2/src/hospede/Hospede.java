@@ -90,5 +90,14 @@ public class Hospede {
         		outroHospede.getCpf().equals(this.getCpf()) &&
         		outroHospede.getEndereco().equals(this.getEndereco());
         }
+
+		@Override
+		public String toString() {
+			return "Hospede [nome=" + nome + ", cpf=" + cpf + ", endereco="
+					+ endereco + ", numeroDoCartao=" + numeroDoCartao
+					+ ", dataDeNacimento=" + dataDeNacimento + "]";
+		}
+        
+        
        
 }// fim da classe

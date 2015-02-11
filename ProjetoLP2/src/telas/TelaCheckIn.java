@@ -255,6 +255,7 @@ public class TelaCheckIn extends JFrame {
 						JOptionPane.showMessageDialog(null,"Formato da data tem que ser dd/MM/yyyy");
 						e.printStackTrace();
 					}
+					//CRIA O OBJETO HOSPEDE----------------------------------------------------------
 					Hospede hospede = new Hospede(tfNome.getText(),tfCPF.getText(), calHospede, tfEndereco.getText(), tfCartaoDeCredito.getText());
 					 
 					String itemSelecionado = comboBoxTipoDeQuarto.getSelectedItem().toString();
@@ -262,6 +263,8 @@ public class TelaCheckIn extends JFrame {
 					servicos.add(quarto);
 					contrato = new Contrato(hospede, calEntrada, calSaida, servicos);
 					JOptionPane.showMessageDialog(null,"Cadastro feito");
+					TelaPrincipal.hotel.adicionaContrato(contrato);
+					JOptionPane.showMessageDialog(null,TelaPrincipal.hotel.getContratos().get(0).getHospede().getNome());
 					hide();
 					break;
 				}
