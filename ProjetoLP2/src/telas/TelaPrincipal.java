@@ -80,15 +80,6 @@ public class TelaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBounds(-492, 111, 1365, 613);
-		contentPane.add(desktopPane);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(574, 51, 610, 468);
-		desktopPane.add(lblNewLabel);
-		lblNewLabel.setIcon(new ImageIcon("/home/alexandreg/Downloads/fachada-heritage-design-hotel.JPG"));
-		
 		JButton btnCheckIn = new JButton("Check In");
 		btnCheckIn.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")

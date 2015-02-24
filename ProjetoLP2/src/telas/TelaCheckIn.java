@@ -264,7 +264,7 @@ public class TelaCheckIn extends JFrame {
 					contrato = new Contrato(hospede, calEntrada, calSaida, servicos);
 					JOptionPane.showMessageDialog(null,"Cadastro feito");
 					TelaPrincipal.hotel.adicionaContrato(contrato);
-					JOptionPane.showMessageDialog(null,TelaPrincipal.hotel.getContratos().get(0).getHospede().getNome());
+					JOptionPane.showMessageDialog(null,"Hospede: " + TelaPrincipal.hotel.getContratos().get(0).getHospede().getNome());
 					hide();
 					break;
 				}
