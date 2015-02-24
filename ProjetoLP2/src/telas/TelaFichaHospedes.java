@@ -43,7 +43,7 @@ public class TelaFichaHospedes extends JFrame {
 	public TelaFichaHospedes() {
 		setTitle("Ficha de Hospedes");
 		
-		setBounds(400, 200, 729, 489);
+		setBounds(400, 200, 729, 551);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -98,14 +98,22 @@ public class TelaFichaHospedes extends JFrame {
 		
 		list.setModel(listModel);
 		btnProcurar.setBounds(307, 128, 147, 41);
-		add(btnProcurar);
+		getContentPane().add(btnProcurar);
 
 		JLabel lblResultadosDaSua = new JLabel("Resultados da sua Busca:");
 		lblResultadosDaSua.setBounds(42, 169, 160, 30);
-		add(lblResultadosDaSua);
+		getContentPane().add(lblResultadosDaSua);
 		
 		btnProcurar.setBounds(487, 31, 117, 23);
 		contentPane.add(btnProcurar);
+		
+		JButton btnDetalhes = new JButton("Detalhes");
+		btnDetalhes.setBounds(20, 474, 117, 25);
+		contentPane.add(btnDetalhes);
+		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.setBounds(149, 474, 117, 25);
+		contentPane.add(btnEditar);
 		
 	
 	}
