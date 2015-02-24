@@ -115,7 +115,7 @@ public class TelaFichaHospedes extends JFrame {
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				EditaHospede TEO = new EditaHospede();
+				EditaHospede TEO = new EditaHospede(list.getSelectedValue());
 				TEO.show();
 			}
 		});

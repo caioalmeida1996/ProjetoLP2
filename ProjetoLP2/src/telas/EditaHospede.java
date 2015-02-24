@@ -1,5 +1,7 @@
 package telas;
 
+import hospede.Hospede;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -23,27 +25,17 @@ public class EditaHospede extends JFrame {
 	private JLabel lblEndereco;
 	private JTextField textField_1;
 	private JTextField tfCartaoDeCredito;
+	private Hospede hospede;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EditaHospede frame = new EditaHospede();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public EditaHospede() {
+	public EditaHospede(Hospede hospede) {
+		this.hospede = hospede;
 		setTitle("Edita Hospede");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -59,6 +51,8 @@ public class EditaHospede extends JFrame {
 		tfNome = new JTextField();
 		tfNome.setBounds(166, 23, 169, 19);
 		contentPane.add(tfNome);
+		System.out.println(hospede.toString());
+		tfNome.setText(hospede.getNome());
 		
 		
 		tfNome.setColumns(10);
