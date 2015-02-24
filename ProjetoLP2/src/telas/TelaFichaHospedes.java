@@ -30,8 +30,8 @@ public class TelaFichaHospedes extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField tfProcurarHospede;
-	private JList<Hospede> list = null;
-//awfewafrthstrhsdrth
+	public JList<Hospede> list = null;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -96,10 +96,11 @@ public class TelaFichaHospedes extends JFrame {
 			}
 		});
 		
+		
 		list.setModel(listModel);
 		btnProcurar.setBounds(307, 128, 147, 41);
 		getContentPane().add(btnProcurar);
-
+		
 		JLabel lblResultadosDaSua = new JLabel("Resultados da sua Busca:");
 		lblResultadosDaSua.setBounds(42, 169, 160, 30);
 		getContentPane().add(lblResultadosDaSua);
@@ -112,9 +113,13 @@ public class TelaFichaHospedes extends JFrame {
 		contentPane.add(btnDetalhes);
 		
 		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				EditaHospede TEO = new EditaHospede();
+				TEO.show();
+			}
+		});
 		btnEditar.setBounds(149, 474, 117, 25);
 		contentPane.add(btnEditar);
-		
-	
 	}
 }
