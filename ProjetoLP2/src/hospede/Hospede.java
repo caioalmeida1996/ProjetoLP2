@@ -1,5 +1,6 @@
 package hospede;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
  
 /**
@@ -93,9 +94,16 @@ public class Hospede {
 
 		@Override
 		public String toString() {
+			String strdate = null;
+
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+
+			if (dataDeNacimento != null) {
+			strdate = sdf.format(dataDeNacimento.getTime());
+			}	
 			return "Hospede [Nome: " + nome + "| CPF: " + cpf + "| Endereco: "
-					+ endereco + "| Cartão De Credito: " + numeroDoCartao
-					+ "| Data de Nacimento: " + dataDeNacimento + "]";
+					+ endereco + "| Cartï¿½o De Credito: " + numeroDoCartao
+					+ "| Data de Nacimento: " + strdate + "]";
 		}
         
         

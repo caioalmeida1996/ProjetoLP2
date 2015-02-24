@@ -67,7 +67,9 @@ public class TelaFichaHospedes extends JFrame {
 		TelaMostraHospede.setViewportView(list);
 		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
 		
-		
+		for (int i = 0; i < TelaPrincipal.hotel.getContratos().size(); i++) {
+			listModel.addElement(TelaPrincipal.hotel.getContratos().get(i).getHospede());
+		}
 		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.addActionListener(new ActionListener() {
