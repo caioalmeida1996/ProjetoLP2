@@ -24,32 +24,33 @@ public class Hotel {
 	 * @param nome
 	 * @return o objeto Hospede referente ao nome passado com parametro
 	 */
-	public Hospede pesquisaHospede(String nome){
+	public String pesquisaHospede(String nome){
 		for (Contrato contrato : contratos) {
 			if (contrato.getHospede().getNome().equals(nome)){
-				return contrato.getHospede();
+				return "Hospede encontrado:" + contrato.getHospede();
 			}
 		}
-		return null;
+		return "Hospede não encontrado.";
 	}
 	
-	public boolean atualizaHospede(Hospede antigoHospede, Hospede novoHospede){
+	public String atualizaHospede(Hospede antigoHospede, Hospede novoHospede){
 		for (int i = 0; i < contratos.size(); i++){
 			if (contratos.get(i).getHospede().equals(antigoHospede)){
 				contratos.get(i).setHospede(novoHospede);
-				return true;
+				return "Hospede atualizado com sucesso.";
 			}
 		}
-		return false;
+		return "Não foi possivel atualizar o hospede.";
 	}
 	
-	public boolean removeHospede(Hospede hospede){
+	public String removeHospede(Hospede hospede){
 		for (int i = 0; i < contratos.size(); i++) {
 			if (contratos.get(i).getHospede().equals(hospede)){
-				return contratos.remove(contratos.get(i));
+				contratos.remove(contratos.get(i));
+				return "Hospede: " + hospede.getNome() + " foi removido com sucesso";
 			}
 		}
-		return false;
+		return "Não foi possivel remover o Hospede.";
 	}
 	
 	// ----------- Caso de Uso 2 -------------
@@ -63,13 +64,14 @@ public class Hotel {
 		return -1;
 	}
 	
-	public boolean pesquisaServico(String nomeHospede, Servico servico){
+	public String pesquisaServico(String nomeHospede, Servico servico){
 		int indice = getIndiceHospede(nomeHospede);
 		
 		if (indice == -1)
-			return false;
+			return "servico nao encontrado";
 		
-		return contratos.get(indice).getServicos().contains(servico);
+		contratos.get(indice).getServicos().contains(servico);
+		return "servico encontrado: " + servico;
 		
 	}
 	
@@ -78,10 +80,10 @@ public class Hotel {
 		
 		if (indice == -1)
 			return false;
-		
+		System.out.println(contratos.get(indice).getServicos().size());
 		for (int i = 0; i < contratos.get(indice).getServicos().size(); i++){
 			 
-			if (servico.getClass().equals(contratos.get(indice).getServicos().get(i))){
+			if (contratos.get(indice).getServicos().get(i).equals(servico)){
 				contratos.get(indice).getServicos().remove(contratos.get(indice).getServicos().get(i));
 				return true;
 			}
@@ -100,13 +102,14 @@ public class Hotel {
 		return contratos.get(indice).getServicos();
 	}// fim do metodo
 	
-	public boolean adicionaServico(String nomeHospedeServico, Servico servico){
+	public String adicionaServico(String nomeHospedeServico, Servico servico){
 		int indice = getIndiceHospede(nomeHospedeServico);
 		
 		if (indice == -1)
-			return false;
+			return "Nao foi possivel adicionar servico.";
 		
-		return contratos.get(indice).getServicos().add(servico);
+		contratos.get(indice).getServicos().add(servico);
+		return "Servico adicionado com sucesso.";
 	}
 	
 	// ----------- Caso de uso 3 -------------

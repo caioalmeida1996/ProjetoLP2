@@ -14,11 +14,12 @@ import quartos.QuartoExecutivo;
 import quartos.QuartoLuxo;
 import quartos.SuitePresidencial;
 import servicos.Servico;
+import telas.TelaPrincipal;
 import contrato.Contrato;
 
-public class HotelTest {
+public class HotelTest2 {
 	
-private Hotel hotel1;
+	private Hotel hotel1;
 	
 	private ArrayList<Contrato> contratos = new ArrayList<Contrato>(); 
 	
@@ -64,97 +65,51 @@ private Hotel hotel1;
 		contrato3 = new Contrato(hospede3, Calendar.getInstance(), Calendar.getInstance(),servicos3);
 		contrato4 = new Contrato(hospede4, Calendar.getInstance(), Calendar.getInstance(),servicos4);
 		
-		contratos.add(contrato1);
-		contratos.add(contrato2);
-		contratos.add(contrato3);
-		contratos.add(contrato4);
+		//contratos.add(null);
+	
 		
 	
 		hotel1 = new Hotel(contratos);
 	}
-
-	///caso de uso 1
-	@Test
-	public void testPesquisaServico() {
-		testAdicionaServico();
-		System.out.println(hotel1.pesquisaServico("heitor", quarto1));
-	}
-
-	@Test
-	public void testRemoveServico() {
-		testAdicionaServico();
-		System.out.println(hotel1.removeServico("heitor", quarto1));
-		testGetServicos();
-	}
-
-	@Test
-	public void testGetServicos() {
-		testAdicionaServico();
-		System.out.println(hotel1.getServicos("heitor"));
-		System.out.println(hotel1.getServicos("Caio"));
-		System.out.println(hotel1.getServicos("Gullo"));
-		System.out.println(hotel1.getServicos("Akiles"));
-	}
-
-	@Test
-	public void testAdicionaServico() {
-		System.out.println(hotel1.adicionaServico("heitor", quarto1));
-		System.out.println(hotel1.adicionaServico("Caio", quarto2));
-		System.out.println(hotel1.adicionaServico("Gullo", quarto3));
-		System.out.println(hotel1.adicionaServico("Akiles", quarto4));
-	}
-
-	///caso de uso 2
-	@Test
-	public void testPesquisaHospede() {
-		System.out.println(hotel1.pesquisaHospede("heitor"));
-		System.out.println(hotel1.pesquisaHospede("Caio"));
-		System.out.println(hotel1.pesquisaHospede("Gullo"));
-		System.out.println(hotel1.pesquisaHospede("Akiles"));
-	}
-
-	@Test
-	public void testAtualizaHospede() {
-		//System.out.println(hotel1.atualizaHospede(antigoHospede, novoHospede));
-	}
-
-	@Test
-	public void testRemoveHospede() {
-		hotel1.removeHospede(hospede1);
-		System.out.println(hotel1.pesquisaHospede("heitor"));
-		System.out.println(hotel1.pesquisaHospede("Caio"));
-		System.out.println(hotel1.pesquisaHospede("Gullo"));
-		System.out.println(hotel1.pesquisaHospede("Akiles"));
-	}
-
 	
-	/// caso de uso 3
 	@Test
-	public void testGetContratos() {
-		testAdicionaContrato();
-		System.out.println(hotel1.getContratos());
-		System.out.println(hotel1.getContratos());
-	}
-
-	@Test
-	public void testAdicionaContrato() {
+	public void usaHotel(){
 		System.out.println(hotel1.adicionaContrato(contrato1));
 		System.out.println(hotel1.adicionaContrato(contrato2));
 		System.out.println(hotel1.adicionaContrato(contrato3));
 		System.out.println(hotel1.adicionaContrato(contrato4));
-	}
-
-	@Test
-	public void testPesquisaContrato() {
-		testAdicionaContrato();
-		System.out.println("--");
-		System.out.println(hotel1.pesquisaContrato(contrato1));
-		System.out.println("--");
-	}
-
-	@Test
-	public void testRemoveContrato() {
-		System.out.println(hotel1.removeContrato(contrato1));
+		System.out.println(hotel1.getContratos());
+		for (int i = 0; i < hotel1.getContratos().size(); i++) {
+			System.out.println(hotel1.getContratos().get(i));
+		}
+		
+		System.out.println(hotel1.pesquisaContrato(contrato3));
+		System.out.println(hotel1.removeContrato(contrato2));
+		System.out.println(hotel1.pesquisaContrato(contrato4));
+		System.out.println(hotel1.getContratos());
+		System.out.println(hotel1.adicionaContrato(contrato2));
+		System.out.println("-------------------");
+		System.out.println(hotel1.getServicos("heitor"));
+		System.out.println(hotel1.getServicos("Caio"));
+		System.out.println(hotel1.getServicos("Gullo"));
+		System.out.println(hotel1.getServicos("Akiles"));
+		System.out.println(hotel1.getServicos("Caio"));
+		System.out.println(hotel1.pesquisaServico("Gullo", quarto3));
+		System.out.println(hotel1.adicionaServico("Akiles", quarto3));
+		System.out.println(hotel1.getServicos("Akiles"));
+		System.out.println(hotel1.removeServico("Akiles", quarto3));
+		System.out.println(hotel1.getServicos("Akiles"));
+		System.out.println("--------------------");
+		System.out.println(hotel1.pesquisaHospede("heitor"));
+		System.out.println(hotel1.pesquisaHospede("Caio"));
+		System.out.println(hotel1.pesquisaHospede("Gullo"));
+		System.out.println(hotel1.pesquisaHospede("Akiles"));
+		System.out.println(hotel1.removeHospede(hospede4));
+		System.out.println(hotel1.pesquisaHospede("Akiles"));
+		System.out.println(hotel1.atualizaHospede(hospede2, hospede3));
+		System.out.println(hotel1.pesquisaHospede("Gullo"));
+		
+		
 	}
 
 }

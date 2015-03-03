@@ -1,8 +1,10 @@
 package contrato;
  
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
  
+
 import hospede.Hospede;
 import servicos.Servico;
  
@@ -99,6 +101,26 @@ public class Contrato {
                 }
                 return somador;
         }
+
+		@Override
+		public String toString() {
+			String strdate1 = null;
+			String strdate2 = null;
+
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+
+			if (dataInicial != null) {
+			strdate1 = sdf.format(dataInicial.getTime());
+			}	
+			if (dataFinal!= null) {
+				strdate2 = sdf.format(dataFinal.getTime());
+				}
+			
+			return "Contrato [hospede=" + hospede +
+					", dataInicial=" + strdate1 +
+					", dataFinal=" + strdate2 +
+					", servicos=" + servicos + "]";
+		}
        
        
 }// fim da classe

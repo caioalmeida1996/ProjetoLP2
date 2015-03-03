@@ -1,5 +1,6 @@
 package quartos;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import servicos.ServicoTrivial;
@@ -124,6 +125,26 @@ public abstract class Quarto extends ServicoTrivial{
 	@Override
 	public double custo() {
 		return getNumeroDiasAluguel() * getValorDiaria();
+	}
+
+	@Override
+	public String toString() {
+		String strdate1 = null;
+		String strdate2 = null;
+
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+
+		if (dataInicial != null) {
+		strdate1 = sdf.format(dataInicial.getTime());
+		}	
+		if (dataFinal!= null) {
+			strdate2 = sdf.format(dataFinal.getTime());
+			}
+		
+		return  "Servico Quarto:" +
+				",data Inicial do aluguel = " + strdate1 +
+				", data Final do aluguel ="+ strdate2 +
+				", nome Do Hospede = " + nomeDoHospede;
 	}
 
 	/*
